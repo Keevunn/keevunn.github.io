@@ -1,0 +1,52 @@
+﻿/* ==================
+    Windows 
+   ================== */
+
+.window {
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    width: 400px;
+    height: 300px;
+
+    min-width: 300px;
+    min-height: 200px;
+}
+
+.window.minimized {
+    display: none;
+}
+
+.window.maximized {
+    top: 0 !important;
+    left: 0 !important;
+
+    width: 100vw !important;
+    height: calc(100vh - 32px) !important;
+}
+
+.window.restored {
+    top: 20%;
+    left: 30%;
+
+    width: 400px;
+    height: 300px;
+}
+
+.window.closed {
+    display: none;
+}
+
+.title-bar {
+    display: flex;
+}
+
+.title-bar-text {
+    align-items: start;
+    flex: auto
+}
+
+.title-bar-icon img {
+    width: 20px;
+    height: 20px;
+}

@@ -1,0 +1,231 @@
+﻿/* ==================
+    Taskbar 
+   ================== */
+
+#taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 32px;
+
+    display: flex;
+    align-items: stretch;
+
+    background:
+            linear-gradient(
+                    to bottom,
+                    #3f8df3 0%,
+                    #2875e5 8%,
+                    #125dcc 50%,
+                    #0c4db3 100%
+            );
+
+    z-index: 1000;
+
+    box-sizing: border-box;
+}
+
+/* Start button */
+
+#start-button {
+    position: relative;
+    overflow: hidden;
+
+    width: 110px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 0 14px 0 8px;
+
+    border: none;
+    border-radius: 0 15px 15px 0;
+
+    background:
+            linear-gradient(
+                    to bottom,
+                    #75bd4a 0%,
+                    #58a936 8%,
+                    #3c9228 50%,
+                    #28751c 100%
+            );
+
+    color: white;
+
+    font-family: "Trebuchet MS", Tahoma, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+
+    text-shadow: 1px 1px 1px #245416;
+
+    /*box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.45),
+            inset 0 -1px 0 rgba(0,0,0,0.25),
+            2px 0 4px rgba(0,0,0,0.35);*/
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+}
+
+#start-button::after {
+    content: "";
+    position: absolute;
+
+    top: 1px;
+    left: 5px;
+    right: 5px;
+
+    height: 8px;
+
+    border-radius: 0 0 50% 50%;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    pointer-events: none;
+}
+
+#start-button span {
+    transform: translateY(-1px);
+}
+
+#start-button:hover {
+    background:
+            linear-gradient(
+                    to bottom,
+                    #86ca57 0%,
+                    #66b842 10%,
+                    #48a132 50%,
+                    #318321 100%
+            );
+}
+
+#start-button:active {
+    background:
+            linear-gradient(
+                    to bottom,
+                    #2a791d 0%,
+                    #3d9429 100%
+            );
+}
+
+/* Apps */
+
+#taskbar-tasks {
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+
+    gap: 3px;
+
+    padding: 2px 5px;
+
+    overflow: hidden;
+}
+
+.taskbar-task {
+    height: 25px;
+    min-width: 150px;
+    max-width: 200px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 8px;
+
+    border: 1px solid #06489f;
+    border-radius: 5px;
+
+    background:
+            linear-gradient(
+                    to bottom,
+                    #4d9af2 0%,
+                    #2878d9 45%,
+                    #1763c4 100%
+            );
+
+    color: white;
+
+    font-family: "Trebuchet MS", Tahoma, sans-serif;
+    font-size: 11px;
+
+    box-shadow:
+            inset 1px 1px rgba(255,255,255,0.3),
+            inset -1px -1px rgba(0,0,0,0.2);
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    cursor: pointer;
+}
+
+.taskbar-task.active {
+    background:
+            linear-gradient(
+                    to bottom,
+                    #1659aa 0%,
+                    #0b4a9b 100%
+            );
+
+    box-shadow:
+            inset 1px 1px rgba(0,0,0,0.35);
+}
+
+.taskbar-task img {
+    width: 20px;
+    height: 20px;
+}
+
+/* System tray */
+
+#system-tray {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 0 12px;
+
+    background:
+            linear-gradient(
+                    to bottom,
+                    #168ee5 0%,
+                    #0878cf 45%,
+                    #0764b7 100%
+            );
+
+    border-left: 1px solid #06458e;
+
+    box-shadow:
+            inset 1px 0 rgba(255,255,255,0.25),
+            inset 0 1px rgba(255,255,255,0.2);
+
+    color: white;
+
+    font-family: "Trebuchet MS", Tahoma, sans-serif;
+    font-size: 11px;
+
+    flex-shrink: 0;
+}
+
+.tray-icons {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    font-size: 12px;
+}
+
+#clock {
+    white-space: nowrap;
+}

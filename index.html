@@ -6,13 +6,17 @@
     <title>Kevwe Anaughe Portfolio</title>
 
     <link rel="stylesheet" href="https://unpkg.com/xp.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/window.css" />
+    <link rel="stylesheet" href="css/taskbar.css" />
+    
+    <script src="script.js" defer></script>
 </head>
 
 <body>
     <!-- desktop -->
     <div id="desktop">
-        <div class="desktop-icon" id="icon-projects">
+        <div class="desktop-icon" id="icon-projects"> <!-- TODO make functional -->
             <img src="assets/icons/Projects.ico" alt="Projects Folder">
             <span>My Projects</span>
         </div>
@@ -21,15 +25,20 @@
     <!-- blank window -->
     <div class="window" id="window-projects" >
         <div class="title-bar">
-            <div class="title-bar-text">Projects</div>
+            <div class="title-bar-icon">
+                <img src="assets/icons/Projects.ico" alt="Projects Window Icon">
+            </div>
+            <div class="title-bar-text">My Projects</div>
             <div class="title-bar-controls">
-                <button aria-label="Minimize"></button>
-                <button aria-label="Restore"></button>
-                <button aria-label="Close"></button>
+                <button aria-label="Minimize" class="window-min"></button>
+                <button aria-label="Maximize" class="window-max"></button>
+                <button aria-label="Restore" class="window-restore"></button>
+                <button aria-label="Close" class="window-close"></button>
             </div>
         </div>
         
         <div class="window-body">
+            <h3>Projects go here...</h3>
             <p>Blank window</p>
         </div>
     </div>
@@ -38,7 +47,9 @@
     <div id="taskbar">
         <button id="start-button">start</button>
         
-        <div id="taskbar-tasks"></div>
+        <div id="taskbar-tasks"> <!-- TODO make taskbar button functional -->
+            <div class="taskbar-task"><img src="assets/icons/Projects.ico" alt="My Projects"/>My Projects</div>
+        </div>
         
         <div id="system-tray">
             <span id="clock">12:00 PM</span>

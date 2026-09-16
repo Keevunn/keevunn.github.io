@@ -1,0 +1,34 @@
+﻿body {
+    background-image: url("../assets/BG_hills.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    
+    margin: 0;
+    overflow: hidden;
+    font-family: "Trebuchet MS", Tahoma, sans-serif;
+}
+
+.desktop-icon {
+    width: 80px;
+    height: 70px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    
+    text-align: center;
+    
+    color: white;
+    font-size: 11px;
+}
+
+.desktop-icon img {
+    width: 32px;
+    height: 32px;
+    
+    object-fit: contain;
+    
+    margin-bottom: 3px;
+}

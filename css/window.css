@@ -4,20 +4,21 @@
 
 .window {
     position: absolute;
+    
     top: 20%;
     left: 30%;
+    
     width: 400px;
     height: 300px;
-
     min-width: 300px;
     min-height: 200px;
 }
 
-.window.minimized {
+.window.minimised {
     display: none;
 }
 
-.window.maximized {
+.window.maximised {
     top: 0 !important;
     left: 0 !important;
 

@@ -9,6 +9,12 @@
     font-family: "Trebuchet MS", Tahoma, sans-serif;
 }
 
+#desktop {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 32px); /* taskbar height = 32px */
+}
+
 .desktop-icon {
     width: 80px;
     height: 70px;

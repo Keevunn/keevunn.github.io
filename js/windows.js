@@ -15,12 +15,24 @@ Taskbar classes:
 
 function bringToFront(win) {
     win.style.zIndex = highestZIdx++;
+    windows.forEach((win) => {win.classList.remove("active");});
+    win.classList.add("active");
+
+    taskbarTasks.forEach((task) => {
+        task.classList.remove("active");
+    });
+    
+    const taskID = win.getAttribute("data-target");
+    if (!taskID) return;
+    
+    const activeTask = document.getElementById(taskID);
+    if (activeTask) activeTask.classList.add("active");
 }
 function openWindowByID(windowID) {
     const win = document.getElementById(windowID);
     if (!win) return;
 
-    win.classList.remove("closed", "minimized");
+    win.classList.remove("closed", "minimised");
     bringToFront(win);
 
     const taskID = win.getAttribute("data-target");
@@ -28,19 +40,13 @@ function openWindowByID(windowID) {
 }
 
 function openWindowByElement(win) {
-    win.classList.remove("closed", "minimized");
+    win.classList.remove("closed", "minimised");
     bringToFront(win);
 
     const taskID = win.getAttribute("data-target");
     openTaskbarTask(taskID);
 }
 
-function openTaskbarTask(taskID) {
-    const task = document.getElementById(taskID);
-    if (!task) return;
-    
-    task.classList.remove("closed");
-}
 // TODO if window closed add appropriate classes
 windows.forEach((win) => {
     // On start only about (or portfolio) page open
@@ -60,24 +66,30 @@ windows.forEach((win) => {
     
     maximiseBtn.style.display = "none";
     
-    // Minimize
+    // Minimise
     minimiseBtn.addEventListener("click", (event) => {
         event.stopPropagation();
-        win.classList.add("minimized");
+        win.classList.add("minimised");
+
+        const taskID = win.getAttribute("data-target");
+        if (!taskID) return;
+
+        const activeTask = document.getElementById(taskID);
+        if (activeTask) activeTask.classList.remove("active");
     });
     
-    // Maximize
+    // Maximise
     maximiseBtn.addEventListener("click", (event) => {
         maximiseBtn.style.display = "none";
         restoreBtn.style.display = "block";
-        win.classList.toggle("maximized");
+        win.classList.toggle("maximised");
     });
     
     // Restore (fullscreen)
     restoreBtn.addEventListener("click", (event) => {
         restoreBtn.style.display = "none";
         maximiseBtn.style.display = "block";
-        win.classList.toggle("maximized");
+        win.classList.toggle("maximised");
     });
     
     // Close
@@ -95,7 +107,7 @@ windows.forEach((win) => {
 
     // Draggable windows ----------------
     let isDragging = false;
-    let offsetX, offsetY = 0;
+    let offsetX = 0, offsetY = 0;
     
     titleBar.addEventListener("mousedown", (event) => {
         if (event.target.closest(".title-bar-controls")) return;
@@ -112,8 +124,18 @@ windows.forEach((win) => {
     document.addEventListener("mousemove", (event) => {
         if (!isDragging) return;
         
-        win.style.left = `${event.clientX - offsetX}px`;
-        win.style.top = `${event.clientY - offsetY}px`;
+        const desktop = document.getElementById("desktop");
+        const desktopRect = desktop.getBoundingClientRect();
+        const winRect = win.getBoundingClientRect();
+        
+        const maxLeft = desktopRect.width - winRect.width;
+        const maxTop = desktopRect.height - winRect.height;
+        
+        let newLeft = Math.max(0, Math.min(event.clientX - offsetX, maxLeft));
+        let newTop = Math.max(0, Math.min(event.clientY - offsetY, maxTop));
+        
+        win.style.left = `${newLeft}px`;
+        win.style.top = `${newTop}px`;
     });
     
     document.addEventListener("mouseup", (event) => {

@@ -10,20 +10,25 @@
     <link rel="stylesheet" href="css/window.css" />
     <link rel="stylesheet" href="css/taskbar.css" />
     
-    <script src="script.js" defer></script>
+    <script src="js/windows.js" defer></script>
+    <script src="js/desktop.js" defer></script>
 </head>
 
 <body>
-    <!-- desktop -->
+    <!-- ========================= 
+            Desktop
+         ========================= -->
     <div id="desktop">
-        <div class="desktop-icon" id="icon-projects"> <!-- TODO make functional -->
+        <div class="desktop-icon" id="icon-projects" data-target="window-projects">
             <img src="assets/icons/Projects.ico" alt="Projects Folder">
             <span>My Projects</span>
         </div>
     </div>
 
-    <!-- blank window -->
-    <div class="window" id="window-projects" >
+    <!-- ========================= 
+            Windows
+         ========================= -->
+    <div class="window" id="window-projects" data-target="taskbar-task-projects" >
         <div class="title-bar">
             <div class="title-bar-icon">
                 <img src="assets/icons/Projects.ico" alt="Projects Window Icon">
@@ -43,12 +48,17 @@
         </div>
     </div>
 
-    <!-- taskbar -->
+    <!-- ========================= 
+            Taskbar
+         ========================= -->
     <div id="taskbar">
         <button id="start-button">start</button>
         
-        <div id="taskbar-tasks"> <!-- TODO make taskbar button functional -->
-            <div class="taskbar-task"><img src="assets/icons/Projects.ico" alt="My Projects"/>My Projects</div>
+        <div id="taskbar-tasks">
+            <div class="taskbar-task" id="taskbar-task-projects" data-target="window-projects">
+                <img src="assets/icons/Projects.ico" alt="My Projects"/>
+                My Projects
+            </div>
         </div>
         
         <div id="system-tray">

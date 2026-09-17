@@ -25,14 +25,6 @@
     height: calc(100vh - 32px) !important;
 }
 
-.window.restored {
-    top: 20%;
-    left: 30%;
-
-    width: 400px;
-    height: 300px;
-}
-
 .window.closed {
     display: none;
 }

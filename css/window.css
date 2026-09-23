@@ -5,13 +5,18 @@
 .window {
     position: absolute;
     
+    display: flex;
+    flex-direction: column;
+    
     top: 20%;
     left: 30%;
     
-    width: 400px;
-    height: 300px;
+    width: 700px;
+    height: 450px;
+    max-height: 600px;
+    
     min-width: 300px;
-    min-height: 200px;
+    min-height: 300px;
 }
 
 .window.minimised {
@@ -32,6 +37,7 @@
 
 .title-bar {
     display: flex;
+    flex-shrink: 0;
 }
 
 .title-bar-text {
@@ -42,4 +48,118 @@
 .title-bar-icon img {
     width: 20px;
     height: 20px;
+}
+
+.window-body {
+    margin: 0 4px 4px 4px;
+    
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    
+    min-width: 0;
+    min-height: 0;
+    
+    box-sizing: border-box;
+
+    font-family: Tahoma, "MS Sans Serif", sans-serif;
+    font-size: 11px;
+    
+    background: #ece9d8;
+    color: black;
+    
+    overflow: hidden;
+}
+
+.window-toolbar{
+    display: flex;
+    align-items: stretch;
+
+    width: 100%;
+    height: 46px;
+    box-sizing: border-box;
+
+    background: #ece9d8;
+    border-top: 1px solid white;
+    border-bottom: 1px solid #aca899;
+
+    flex-shrink: 0;
+}
+
+
+.toolbar-back,
+.toolbar-addressbar,
+.toolbar-addressbar-field,
+.toolbar-view {
+    display: flex;
+    align-items: center;
+
+    box-sizing: border-box;
+}
+
+.toolbar-back {
+    flex: 0 0 64px;
+    justify-content: center;
+    
+    width: 64px;
+    gap: 8px;
+    
+    border-right: 1px solid #aca899;
+}
+
+.toolbar-back img,
+.toolbar-view img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.toolbar-addressbar {
+    flex: 1 1 auto;
+    
+    min-width: 0;
+    padding: 0 8px;
+}
+
+.toolbar-addressbar-field {
+    width: 100%;
+    height: 26px;
+    padding: 0 8px;
+    
+    min-width: 0;
+    
+    background: white;
+    border: 1px solid #7f9db9;
+}
+
+.toolbar-addressbar-field span {
+    display: inline-flex;
+    align-items: center;
+    
+    gap: 4px;
+}
+
+.toolbar-addressbar-field img {
+    width: 18px;
+    height: 18px;
+}
+
+.toolbar-view {
+    flex: 0 0 48px;
+    justify-content: center;
+    
+    width: 48px;
+    
+    border-left: 1px solid #aca899;
+}
+
+
+.window-content {
+    display: flex;
+    flex: 1;
+    
+    min-width: 0;
+    min-height: 0;
+    
+    overflow: hidden;
 }

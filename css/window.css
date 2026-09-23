@@ -71,6 +71,10 @@
     overflow: hidden;
 }
 
+/* ==================
+    Toolbar 
+   ================== */
+
 .window-toolbar{
     display: flex;
     align-items: stretch;
@@ -153,6 +157,9 @@
     border-left: 1px solid #aca899;
 }
 
+/* ==================
+    Content 
+   ================== */
 
 .window-content {
     display: flex;
@@ -162,4 +169,137 @@
     min-height: 0;
     
     overflow: hidden;
+}
+
+/* ==================
+    Left panel 
+   ================== */
+
+.content-leftpanel {
+    flex: 0 0 185px;
+    
+    padding: 10px;
+    box-sizing: border-box;
+    
+    background: linear-gradient(
+        #7fa4e8 0%,
+        #6689d8 55%,
+        #5a79cd 100%
+    );
+    
+    overflow-y: auto;
+}
+
+.task-group {
+    margin-bottom: 12px;
+    
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    
+    background: #d6e5ff;
+}
+
+.task-group-heading {
+    margin: 0;
+    
+    padding: 5px 8px;
+    
+    font: inherit;
+    font-weight: bold;
+    
+    color: #0c4ca3;
+    background: linear-gradient(
+        to right,
+        #ffffff 0%,
+        #f5f8ff 55%,
+        #d7e5ff 100%
+    );
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    
+    gap: 6px;
+    
+    margin: 0;
+    padding: 8px;
+    
+    list-style: none;
+}
+
+.task-action {
+    display: flex;
+    align-items: flex-start;
+    
+    gap: 6px;
+    
+    color: #0c4ca3;
+    
+    font-size: 11px;
+    line-height: 1.2;
+    
+    text-decoration: none;
+}
+
+.task-action:hover {
+    text-decoration: underline;
+}
+
+.task-action img {
+    width: 16px;
+    height: 16px;
+    
+    flex-shrink: 0;
+    
+    object-fit: contain;
+}
+
+/* ==================
+    Right panel 
+   ================== */
+
+.content-rightpanel {
+    flex: 1;
+    
+    min-width: 0;
+    min-height: 0;
+    
+    padding: 4px 0;
+    box-sizing: border-box;
+    
+    background: white;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.project-section {
+    margin-bottom: 18px;
+}
+
+.project-section h2 {
+    margin: 0;
+    padding: 0 0 3px 16px;
+    
+    font: inherit;
+    font-weight: bold;
+    
+    color: black;
+}
+
+.project-section-separator {
+    margin-bottom: 10px;
+    
+    width: 100%;
+    height: 2px;
+    
+    background: linear-gradient(to right, #7fa4e8 30%, white 50%);
+}
+
+.project-list {
+    display: grid;
+    padding: 0 20px;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    
+    gap: 14px 18px;
 }

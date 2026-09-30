@@ -29,6 +29,7 @@
 
     width: 100vw !important;
     height: calc(100vh - 32px) !important;
+    max-height: none;
 }
 
 .window.closed {
@@ -297,9 +298,39 @@
 }
 
 .project-list {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     padding: 0 20px;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     
     gap: 14px 18px;
+}
+
+.project-item {
+    display: flex;
+    gap: 3px;
+}
+
+.project-item img {
+    display: block;
+    
+    width: 128px;
+    height: 72px;
+
+    flex-shrink: 0;
+
+    object-fit: cover;
+}
+
+.project-item-text {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+    gap: 3px;
+    
+}
+
+.project-item-text span {
+    color: #8f8f8f;
 }

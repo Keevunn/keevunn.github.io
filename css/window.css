@@ -329,8 +329,24 @@
     
     gap: 3px;
     
+    padding: 5px;
 }
 
 .project-item-text span {
     color: #8f8f8f;
+}
+
+.project-item:hover .project-item-text {
+    background: #e8f1ff;
+}
+
+.project-item.selected .project-item-text {
+    background-color: #316ac5;
+    color: white;
+    
+    outline: 1px dotted black;
+}
+
+.project-item.selected .project-item-text span {
+    color: white;
 }

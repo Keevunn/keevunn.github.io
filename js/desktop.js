@@ -63,3 +63,17 @@ function updateClock() {
 
 updateClock();
 setInterval(updateClock, 1000);
+
+// Non-draggable images
+const nonDraggableList = document.querySelectorAll(`
+    .desktop-icon img,
+    .title-bar img,
+    .window-toolbar img,
+    .task-action img,
+    .taskbar-task img,
+    .project-item img
+`);
+
+nonDraggableList.forEach((image) => {
+    image.addEventListener("dragstart", (event) => {event.preventDefault();});
+});

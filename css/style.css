@@ -38,3 +38,22 @@
     
     margin-bottom: 3px;
 }
+
+.desktop-icon,
+.title-bar,
+.window-toolbar,
+.content-leftpanel,
+#taskbar {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* doesn't work on firefox so added js code to perform same action */
+.desktop-icon img,
+.title-bar img,
+.window-toolbar img,
+.task-action img,
+.taskbar-task img,
+.project-item img {
+    -webkit-user-drag: none;
+}

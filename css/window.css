@@ -300,40 +300,58 @@
 .project-list {
     display: flex;
     flex-direction: column;
-    padding: 0 20px;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 8px;
     
-    gap: 14px 18px;
+    padding: 0 16px 16px;
 }
 
 .project-item {
     display: flex;
-    gap: 3px;
+    gap: 8px;
+    
+    padding: 2px;
+    align-items: stretch;
+    
+    min-width: 0;
+    
+    cursor: default;
+    user-select: none;
 }
 
 .project-item img {
     display: block;
-    
-    width: 128px;
-    height: 72px;
-
     flex-shrink: 0;
 
     object-fit: cover;
+    
+    width: 128px;
+    height: 72px;
 }
 
 .project-item-text {
     display: flex;
-    justify-content: center;
+    flex: 1;
     flex-direction: column;
-    
     gap: 3px;
+
+    padding: 6px 8px;
+    justify-content: center;
     
-    padding: 5px;
+    min-width: 0;
+    
+    color: black;
+    background: transparent;
+}
+
+.project-item-text strong {
+    font-size: 13px;
+    line-height: 1.2;
 }
 
 .project-item-text span {
     color: #8f8f8f;
+    font-size: 12px;
+    line-height: 1.25;
 }
 
 .project-item:hover .project-item-text {
@@ -344,6 +362,14 @@
     background-color: #316ac5;
     color: white;
     
+    outline: 1px dotted black;
+}
+
+.project-item:focus-visible {
+    outline: none;
+}
+
+.project-item:focus-visible .project-item-text {
     outline: 1px dotted black;
 }
 

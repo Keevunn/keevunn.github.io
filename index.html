@@ -109,51 +109,54 @@
                 
                 <main class="content-rightpanel">
                     
-                    <section class="project-section">
+                    <section class="project-section" id="project-list-view">
                         <h2>Projects</h2>
                         
                         <div class="project-section-separator"></div>
                         
                         <div class="project-list">
                             
-                            <div class="project-item" tabindex="0">
+                            <div class="project-item" data-project-id="destruction" tabindex="0">
                                 <img src="assets/projectImages/dissProject/projectThumbnail.png" alt="Dissertation project thumbnail"/>
                                 <div class="project-item-text">
                                     <strong>Graph-Based Real-Time Destruction</strong>
                                     <span>Unreal • C++</span>
-                                    <span>Comparing graph-based destruction models against a physics baseline.</span>
+                                    <span>Graph-based structural models comparison for real-time game destruction.</span>
                                 </div>
                             </div>
 
-                            <div class="project-item selected" tabindex="0">
+                            <div class="project-item selected" data-project-id="push-pull" tabindex="0">
                                 <img src="assets/projectImages/teamProject/thumbnail.png" alt="Push-Pull team project thumbnail"/>
                                 <div class="project-item-text">
                                     <strong>Push-Pull</strong>
                                     <span>Jolt • FMOD • C++</span>
-                                    <span>Game developed as part of a team with physics-based gameplay.</span>
+                                    <span>Team-developed game with force-based mechanics.</span>
                                 </div>
                             </div>
 
-                            <div class="project-item" tabindex="0">
+                            <div class="project-item" data-project-id="graphics" tabindex="0">
                                 <img src="assets/projectImages/graphicsProject/IslandScene.png" alt="Graphics project thumbnail"/>
                                 <div class="project-item-text">
                                     <strong>Real-Time Graphics Project</strong>
                                     <span>OpenGL • GLSL • C++</span>
-                                    <span>A rendering demo exploring lighting, animation and shader techniques.</span>
+                                    <span>Graphics demo exploring lighting, animation and shader techniques.</span>
                                 </div>
                             </div>
 
-                            <div class="project-item" tabindex="0">
+                            <div class="project-item" data-project-id="prisoners" tabindex="0">
                                 <img src="assets/projectImages/ipdProject/ProjectTableThumbnail.png" alt="Iterated Prisoner's Dilemma thumbnail"/>
                                 <div class="project-item-text">
                                     <strong>Iterated Prisoner's Dilemma</strong>
                                     <span>CLI • C++</span>
-                                    <span>A configurable tournament and evolutionary simulation framework.</span>
+                                    <span>Configurable tournament and evolutionary simulation framework.</span>
                                 </div>
                             </div>
                             
                         </div>
                     </section>
+                    
+                    <div id="project-detail-view" aria-live="polite" hidden>
+                    </div>
                     
                 </main>
             </div>

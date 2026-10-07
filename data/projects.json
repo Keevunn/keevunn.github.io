@@ -1,0 +1,162 @@
+﻿[
+    {
+        "id": "destruction",
+        "title": "Graph-Based Real-Time Destruction",
+        "overview": "For my master's dissertation, I built a playable demolition prototype in Unreal Engine 5 to investigate alternatives to physics-driven structural destruction. Players deploy timed charges to destroy objective pieces while trying to avoid damaging protected pieces of the structure. Behind this gameplay loop, I implemented and compared a physics-driven baseline, a connectivity model, and a load-propagation model.",
+        "image": {
+            "src": "assets/projectImages/dissProject/dissProject.gif",
+            "alt": "Structural analysis for destruction simulation"
+        },
+        "info": {
+            "type": "Individual research project",
+            "role": null,
+            "technologies": ["Unreal Engine 5", "C++", "Chaos Physics"],
+            "tags": ["Destruction Gameplay", "Runtime Graph Systems", "Structural Simulation", "Automated Benchmarking"]
+        },
+        "contributions": [
+            "Built the core demolition interaction around timed charge placement, distance-based damage, radial impulses, and piece type evaluation.",
+            "Implemented physics-driven, connectivity-based and load-propagation structural models.",
+            "Built runtime graph construction and structural support analysis.",
+            "Created automated benchmark scenarios and CSV result collection."
+        ],
+        "technical": [
+            {
+                "title": "Destruction Gameplay",
+                "description": "A placed charge uses a timer, as a fuse, and a spherical overlap query to find nearby pieces. After the fuse expires, the charge applies distance-based damage once per piece and a radial impulse to pieces using physics. Once these direct effects have been applied, affected graph-based structures refresh their active model to evaluate connectivity, redistribute load and identify any resulting failures."
+            },
+            {
+                "title": "Structural Models",
+                "description": "The prototype builds a graph of connected pieces at runtime. The connectivity model searches outward from special pieces marked as anchors using breadth-first traversal, to detach pieces that become isolated from them. The load model propagates load towards anchors. Pieces whose accumulated load exceeds their capacity can fail and cause further failures. I compared both with a baseline that creates breakable physics constraints between pieces based on proximity."
+            },
+            {
+                "title": "Evaluation",
+                "description": "I developed a benchmark harness that runs repeatable structural scenarios. Each run records setup, solve and frame-time metrics, piece-state counts, model-specific diagnostics, and whether the scenario met its intended outcome. I used the resulting CSV data to compare the behaviour and computational cost of each model."
+            }
+        ],
+        "results": "This project changed how I evaluate gameplay systems. Implementing the models was only part of the work; I also needed to define what successful behaviour meant, construct repeatable scenarios and collect evidence that separated implementation correctness from design suitability. The results showed that greater behavioural complexity was not automatically better: CONN produced the most predictable results, while LOAD enabled overload cascades but became more sensitive to structure layout and parameter tuning. This taught me to evaluate a system in terms of its intended gameplay role rather than treating realism as the only measure of quality.\nWorking in Unreal also gave me experience integrating custom C++ systems with engine-managed physics, collision queries, events, and UI, as well as collecting repeatable performance data from packaged builds.",
+        "links": {
+            "github": "https://github.com/Keevunn/CSC8498Project_StructuralDestruction",
+            "youtube": "https://www.youtube.com/watch?v=EMv7SM4RDvs"
+        }
+    },
+    {
+        "id": "push-pull",
+        "title": "Push-Pull",
+        "overview": "Push-Pull is a team-developed C++ traversal game built around interacting with objects and anchors through push and pull abilities. My work focused on player-facing systems: movement and targeting, Jolt-powered physics interactions, state-driven skeletal animation, and FMOD audio integration.",
+        "image": {
+            "src": "assets/projectImages/teamProject/teamThumbnail.gif",
+            "alt": "Push-Pull gameplay"
+        },
+        "info": {
+            "type": "Team Project",
+            "role": "Gameplay and engine programming",
+            "technologies": ["C++", "Jolt Physics", "FMOD"],
+            "tags": ["Physics-based Traversal", "Skeletal Animation", "Gameplay Audio"]
+        },
+        "contributions": [
+            "Integrated Jolt and reworked player movement and push-pull interactions using forces for traversal and movable objects.",
+            "Developed camera-aware targeting and lock-on behaviour, including line-of-sight checks and feedback for the selected object.",
+            "Implemented a state-driven skeletal animation controller with clip blending, and connected animation states to player input.",
+            "Implemented an FMOD audio service and connected sounds to gameplay events."
+        ],
+        "technical": [
+            {
+                "title": "Physics and Traversal",
+                "description": "Players can lock-on to various objects and, depending on the object's type, the push-pull interaction works differently. If an object is marked as an anchor, a distance constraint is created whose length can be reeled in or out, thus allowing the player to pull themselves towards the anchor, or push and launch away. Target selection favours objects near the centre of the camera view and checks that they are visible before allowing an interaction by using a ray collision query."
+            },
+            {
+                "title": "Animation",
+                "description": "I implemented animation sampling and transitions so the character's pose is dependent on the gameplay state. The animator interpolates position and scale keys, blends rotations with quaternion interpolation and builds final joint matrices for skinning. The player logic selects clips for states such as idle, run, jump, fall, and land, with short blends between them."
+            },
+            {
+                "title": "Audio",
+                "description": "I built a central FMOD service to load, play, update and release sounds, with master-volume controls. Sound cues are connected to actions and transitions including jumps, level completion, and menus."
+            }
+        ],
+        "results": "This project showed me that gameplay feel rarely belongs to a single system. Movement, physics, animation, camera targeting, visual feedback and audio all needed to agree about the player’s current state for the interactions to feel responsive. Bringing those systems together was one of the most satisfying parts of the project and made me more deliberate about defining clear responsibilities between gameplay and engine code.\nWorking in a team also improved how I communicate technical decisions. I became more confident proposing workflow changes and explaining the reasoning behind an implementation, while learning when compromise was more valuable than pursuing my preferred solution.",
+        "links": {
+            "github": null,
+            "youtube": "https://www.youtube.com/watch?v=s02qkATsY4A"
+        }
+    },
+    {
+        "id": "graphics",
+        "title": "Real-Time Graphics Project",
+        "overview": "I built a C++ and OpenGL graphics demonstration with two switchable scenes: a natural environment with terrain, water and animated characters; and a factory scene with animated characters and spotlights. The final coursework integrates custom GLSL shaders, skeletal animation, tessellated surfaces, splat mapping, and a multi-pass lighting renderer on top of the framework provided for the module.",
+        "image": {
+            "src": "assets/projectImages/graphicsProject/graphicsThumbnail.gif",
+            "alt": "Graphics demo showing islands"
+        },
+        "info": {
+            "type": "Graphics Coursework Project",
+            "role": null,
+            "technologies": ["C++", "OpenGL", "GLSL"],
+            "tags": ["Multi-pass Rendering", "GLSL Shader Programming", "Skeletal Animation", "Tessellated Terrain"]
+        },
+        "contributions": [
+            "Designed a multi-pass renderer that separates geometry, lighting and composition, using framebuffer attachments for colour, normals, emissive data and depth.",
+            "Wrote and integrated GLSL shaders for deferred lighting, skeletal skinning, tessellated terrain, blend mapping, animated water and fog.",
+            "Implemented skeletal animation playback by evaluating the bone hierarchy in C++ and supplying the resulting joint matrices to the skinning shader.",
+            "Created two switchable scenes with reusable rendering systems, independently animated characters and scripted camera routes."
+        ],
+        "technical": [
+            {
+                "title": "Renderer and Lighting",
+                "description": "I organised rendering into a geometry pass, a lighting pass, and a final combination pass. The geometry pass writes the information needed for lighting to textures; later passes use these textures for directional and spotlight effects. Bringing the passes together required careful management of framebuffers, textures, and OpenGL state."
+            },
+            {
+                "title": "Terrain and Scene Composition",
+                "description": "I implemented a tessellated height-map terrain pipeline and wrote the shader logic used to displace and blend its surface. I also drew the splat map used to texture the ground. The waves in this scene were rendered using a tessellation shader and time-based wave displacement. This gave me experience combining CPU-side scene configuration with GPU-side surface generation."
+            },
+            {
+                "title": "Skeletal Animation Pipeline",
+                "description": "I separated animation playback from rendering so that multiple character instances could maintain independent playback state while using the same underlying model and animation data. Each animator evaluates the bone hierarchy, combines local and parent transforms, applies the inverse bind pose and supplies the final joint matrices to the skinning shader. This helped me understand the complete path animation data takes from an imported asset to the final GPU deformation."
+            }
+        ],
+        "results": "The most challenging part of this project was applying graphics theory in a working renderer. Concepts such as transformation hierarchies, lighting calculations, framebuffer attachments and tessellation made sense individually, but combining them exposed gaps in my understanding of how data moves through the complete rendering pipeline. Implementing these systems helped me connect the mathematical theory to the responsibilities of the C++ renderer and each shader stage. By the end of the project, I was more confident reasoning about coordinate spaces, shader inputs and the interaction between different rendering techniques.",
+        "links": {
+            "github": "https://github.com/Keevunn/CSC8502_GraphicsProject",
+            "youtube": "https://youtu.be/vArm3Q4p7QQ"
+        }
+    },
+    {
+        "id": "prisoners",
+        "title": "Iterated Prisoner's Dilemma",
+        "overview": "The Iterated Prisoner’s Dilemma is a game-theory problem in which two agents repeatedly choose whether to cooperate or defect, allowing each strategy to react to the other’s previous decisions. I built a configurable C++20 simulator that runs strategies against one another under repeatable conditions and exports statistical results for analysis.",
+        "image": {
+            "src": "assets/projectImages/ipdProject/ProjectTableThumbnail.png",
+            "alt": "Table showing results from running IPD tournament"
+        },
+        "info": {
+            "type": "C++ Coursework Project",
+            "role": null,
+            "technologies": ["C++20", "CMake", "GoogleTest"],
+            "tags": ["Modular C++ Architecture", "RAII & Smart Pointers", "Runtime Polymorphism", "Repeatable Simulation"]
+        },
+        "contributions": [
+            "Designed a modular C++20 architecture that separates configuration, tournament control, individual matches, strategy behaviour, statistics and output.",
+            "Used inheritance and runtime polymorphism to make strategies interchangeable, with smart pointers expressing ownership and automatically managing their lifetimes.",
+            "Built a validated command-line configuration system with deterministic seeds and save/load support for repeatable experiments.",
+            "Separated simulation results from output processing, allowing the same data to be exported as text, CSV or JSON."
+        ],
+        "technical": [
+            {
+                "title": "Architecture and Ownership",
+                "description": "I separated tournament control, match simulation and strategy behaviour into distinct layers. Strategies derive from a common 'Agent' interface, allowing the tournament and match systems to operate on polymorphic objects without depending on individual strategy implementations. The tournament owns its strategy instances through std::unique_ptr, giving each object a clear lifetime and ensuring that resources are released automatically."
+            },
+            {
+                "title": "Extensibility",
+                "description": "The common strategy interface allows new behaviours to be added without changing the match simulation. Each strategy contains its own decision-making state, while the surrounding systems only need to create it through the strategy factory. Separate instances are created for each participant, including self-play, preventing states from being unintentionally shared between opponents."
+            },
+            {
+                "title": "Repeatability and Results",
+                "description": "I separated argument validation, running the simulation and formatting the result into different components. Experiments can be configured through command-line options, saved for reuse and run with deterministic random seeds. Agents are reset between matches, and results are represented in the format selected by the user. By doing this, it was much easier to test the simulator, to reproduce results and extend the functionality."
+            }
+        ],
+        "results": "This project strengthened my understanding of ownership and modular design in modern C++. Using smart pointers and a shared strategy interface made object lifetimes clearer and kept the tournament logic independent of concrete agent types. If I revisited the project, I would simplify some of the data flow between the simulation and output layers and expand the automated testing to cover the evolutionary tournaments.",
+        "links": {
+            "github": "https://github.com/Keevunn/IteratedPrisonersDilemma",
+            "youtube": null
+        }
+    }
+]

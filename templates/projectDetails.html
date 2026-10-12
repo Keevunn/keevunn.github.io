@@ -1,18 +1,55 @@
 ﻿<template id="project-detail-template">
     <article class="project-detail">
-        <header class="project-detail-header">
-            <h2 data-project-title tabindex="-1"></h2>
-            <p data-project-technologies></p>
-        </header>
         
-        <img class="project-detail-image" data-project-image src="" alt="">
+        <div class="project-detail-hero">
+            <div class="project-detail-primary">
+                <img class="project-detail-image" data-project-image src="" alt="">
+
+                <header class="project-detail-header">
+                    <h2 data-project-title tabindex="-1"></h2>
+                    <p data-project-technologies></p>
+                </header>
+            </div>
+
+            <dl class="project-properties">
+                <div class="project-property">
+                    <dt>Type</dt>
+                    <dd data-project-type></dd>
+                </div>
+
+                <div class="project-property" data-project-role-row> <!-- hidden where role is null -->
+                    <dt>Role</dt>
+                    <dd data-project-role></dd>
+                </div>
+
+                <div class="project-property">
+                    <dt>Tags</dt>
+                    <dd class="project-detail-tags" data-project-tags></dd> <!-- span for each tag, background colour: #316ac5 -->
+                </div>
+            </dl>
+        </div>
         
-        <p data-project-summary></p>
-        
-        <section>
-            <h3>My Contribution</h3>
-            <ul data-project-contributions></ul>
-            <!-- Results and Reflects -->
+        <section class="project-detail-section" id="project-overview">
+            <h3>Overview</h3>
+            <p data-project-overview></p>
         </section>
+        
+        <section class="project-detail-section" id="project-contributions">
+            <h3>Contributions</h3>
+            <ul data-project-contributions></ul>
+        </section>
+
+        <section class="project-detail-section project-detail-technicals" id="project-technical">
+            <h3>Technical Features</h3>
+            <div data-project-technical></div>
+            <!-- titles bold italicised (h4, em) -->
+            <!-- maybe different coloured background (#e7efff) for this section -->
+        </section>
+        
+        <section class="project-detail-section" id="project-results">
+            <h3>Results and Reflections</h3>
+            <div data-project-results></div>
+        </section>
+        
     </article>
 </template>

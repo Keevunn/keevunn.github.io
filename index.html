@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Kevwe Anaughe Portfolio</title>
+    <link rel="icon" href="assets/icons/Projects.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="https://unpkg.com/xp.css" />
     <link rel="stylesheet" href="css/style.css" />
@@ -12,6 +13,7 @@
     
     <script src="js/windows.js" defer></script>
     <script src="js/desktop.js" defer></script>
+    <script src="js/projects.js" defer></script>
 </head>
 
 <body>
@@ -46,15 +48,19 @@
         <div class="window-body">
             <nav class="window-toolbar">
                 <div class="toolbar-back">
-                    <img src="assets/icons/Back.png" alt="Back Button Icon"/>
-                    <img src="assets/icons/Forward.png" alt="Forward Button Icon"/>
+                    <a href="#" class="toolbar-nav-button" data-project-back aria-label="Back" aria-disabled="true">
+                        <img src="assets/icons/Back.png" alt=""/>
+                    </a>
+                    
+                    <a href="#" class="toolbar-nav-button" data-project-forward aria-label="Forward" aria-disabled="true">
+                        <img src="assets/icons/Forward.png" alt=""/>
+                    </a>
+                    
                 </div>
                 <div class="toolbar-addressbar">
                     <div class="toolbar-addressbar-field">
-                        <span>
                             <img src="assets/icons/MyComputer.png" alt="My Computer Icon">
-                            My Projects/
-                        </span>
+                            <span data-project-address>My Projects/</span>
                     </div>
                 </div>
                 <div class="toolbar-view">
@@ -67,24 +73,24 @@
             <div class="window-content">
                 <aside class="content-leftpanel">
                     
-                    <section class="task-group"> <!-- don't show when project not selected -->
+                    <section class="task-group" data-project-actions hidden> <!-- don't show when project not selected -->
                         <h3 class="task-group-heading">Project Tasks</h3>
                         
                         <ul class="task-list">
-                            <li>
-                                <a class="task-action" href="#">
+                            <li data-project-open-row>
+                                <a class="task-action" href="#" data-project-open> <!-- hidden on detail view -->
                                     <img src="assets/icons/Open.png" alt="Open Project Icon"/>
                                     Open project
                                 </a>
                             </li>
-                            <li>
-                                <a class="task-action" href="#">
+                            <li data-project-github-row>
+                                <a class="task-action" href="#" data-project-github>
                                     <img src="assets/icons/InternetShortcut.png" alt="Internet Icon"/>
                                     View on GitHub
                                 </a>
                             </li>
-                            <li>
-                                <a class="task-action" href="#">
+                            <li data-project-youtube-row>
+                                <a class="task-action" href="#" data-project-youtube>
                                     <img src="assets/icons/Play.png" alt="Play Icon"/>
                                     Watch demo
                                 </a>
@@ -92,15 +98,35 @@
                         </ul>
                     </section>
 
+                    <!-- TODO need to add icons for each action -->
                     <section class="task-group">
                         <h3 class="task-group-heading">Other Places</h3>
 
                         <ul class="task-list">
                             <li>
-                                <a class="task-action" href="#">All Projects</a>
+                                <a class="task-action" href="#" data-show-project-list>All Projects</a>
                             </li>
                             <li>
                                 <a class="task-action" href="#">Desktop</a>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section class="task-group" data-project-page-navigation hidden>
+                        <h3 class="task-group-heading">On This Page</h3> <!-- hidden on list view -->
+
+                        <ul class="task-list">
+                            <li>
+                                <a class="task-action" href="#project-overview">Overview</a>
+                            </li>
+                            <li>
+                                <a class="task-action" href="#project-contributions">Contributions</a>
+                            </li>
+                            <li>
+                                <a class="task-action" href="#project-technical">Technical Features</a>
+                            </li>
+                            <li>
+                                <a class="task-action" href="#project-results">Results and Reflections</a>
                             </li>
                         </ul>
                     </section>
@@ -125,7 +151,7 @@
                                 </div>
                             </div>
 
-                            <div class="project-item selected" data-project-id="push-pull" tabindex="0">
+                            <div class="project-item" data-project-id="push-pull" tabindex="0">
                                 <img src="assets/projectImages/teamProject/thumbnail.png" alt="Push-Pull team project thumbnail"/>
                                 <div class="project-item-text">
                                     <strong>Push-Pull</strong>

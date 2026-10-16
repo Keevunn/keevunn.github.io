@@ -1,0 +1,119 @@
+﻿{
+    "intro": "I’m Kevwe, a games programmer currently focused on gameplay. Over the past four years, I’ve developed games and technical projects using both Unity and Unreal Engine, alongside standalone C++ projects involving gameplay, physics and graphics programming.\nI’m particularly interested in player-facing systems: the mechanics, movement, physics, interface and visual feedback that shape how a game feels to play. Games have created some of my most memorable experiences, and I want to help create that feeling for other players.",
+    "development": [
+        {
+            "title": "Core Gameplay",
+            "description": "Developing movement, interactions and abilities that shape the player’s moment-to-moment experience."
+        },
+        {
+            "title": "Game Physics",
+            "description": "Using collision, forces and constraints to create mechanics that feel responsive and satisfying."
+        },
+        {
+            "title": "Player Feedback and UI",
+            "description": "Communicating game state clearly through UI, audio and visual feedback."
+        },
+        {
+            "title": "Graphics Programming",
+            "description": "Experimenting with shaders and real-time rendering techniques, particularly lighting, skeletal animation and procedural effects."
+        }
+    ],
+    "qualifications": [
+        {
+            "label": "Degree",
+            "value": "MComp Computer Science"
+        },
+        {
+            "label": "University",
+            "value": "Newcastle University"
+        },
+        {
+            "label": "Classification",
+            "value": "First Class Honours"
+        },
+        {
+            "label": "Completed",
+            "value": "2026"
+        }
+    ],
+    "working": [
+        {
+            "label": "Codebase Awareness",
+            "value": "I follow established conventions and understand the existing architecture before making changes."
+        },
+        {
+            "label": "Systems Thinking",
+            "value": "I consider how a feature interacts with surrounding systems and affects the player experience."
+        },
+        {
+            "label": "Adaptability",
+            "value": "I’m comfortable learning unfamiliar libraries, engines and frameworks."
+        },
+        {
+            "label": "Team Communication",
+            "value": "I can explain technical decisions clearly and compromise when it supports the shared result."
+        }
+    ],
+    "interests": {
+        "games": [
+            {
+                "title": "Hades II",
+                "note": "I like how its progression systems give the player meaningful control over how each run develops, and how it uses RNG to introduce variation."
+            },
+            {
+                "title": "Disco Elysium",
+                "note": "Its detailed world-building and branching dialogue make choices feel personal, through the use of lots of small-scale consequences."
+            },
+            {
+                "title": "The Legend of Zelda: Breath of the Wild",
+                "note": "Its restrained guidance makes exploring the world feel self-directed and being curious is well-rewarded."
+            }
+        ],
+        "songs": [
+            {
+                "title": "Marigold",
+                "note": "Frost Children"
+            },
+            {
+                "title": "Broken",
+                "note": "Gorillaz"
+            },
+            {
+                "title": "Secret Wars",
+                "note": "Hail The Sun"
+            }
+        ],
+        "filmTv": [
+            {
+                "title": "Severance",
+                "note": "Dan Erickson"
+            },
+            {
+                "title": "One Piece",
+                "note": "Eiichiro Oda"
+            },
+            {
+                "title": "The Incredibles",
+                "note": "Brad Bird"
+            }
+        ]
+    },
+    "links": [
+        {
+            "label": "Email",
+            "text": "kevwe.a@outlook.com",
+            "href": "mailto:kevwe.a@outlook.com"
+        },
+        {
+            "label": "GitHub",
+            "text": "Keevunn",
+            "href": "https://github.com/Keevunn"
+        },
+        {
+            "label": "LinkedIn",
+            "text": "Kevwe Anaughe",
+            "href": "https://www.linkedin.com/in/kevwe-anaughe/"
+        }
+    ]
+    
+}

@@ -1,0 +1,102 @@
+﻿<template id="about-window-template">
+    <nav class="about-browser-toolbar" aria-label="Browser toolbar">
+        <div class="about-browser-navigation" aria-hidden="true">
+            <span class="about-nav-button disabled">
+                <img src="../assets/icons/Back.png" alt="">
+            </span>
+            <span class="about-nav-button disabled">
+                <img src="../assets/icons/Forward.png" alt="">
+            </span>
+        </div>
+        
+        <div class="about-address">
+            <span class="about-address-label">Address</span>
+            
+            <div class="about-address-field">
+                <img src="../assets/icons/URL.png" alt="">
+                <span>http://www.yourspace.com/kevwe</span>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="about-content">
+        <header class="yourspace-banner">
+            <div class="yourspace-logo">
+                <span class="yourspace-logo-symbol" aria-hidden="true">●●●</span> <!-- TODO find logo -->
+                <span>yourspace</span>
+            </div>
+        </header>
+        
+        <div class="yourspace-layout">
+            <aside class="yourspace-sidebar">
+                <section class="profile-summary">
+                    <h1>Kevwe Anaughe</h1>
+                    <p>Games Programmer</p>
+                    
+                    <img class="profile-photo" src="../assets/aboutImages/GraduationPic.jpeg" alt="Picture of Kevwe Anaughe at graduation">
+                    
+                    <p class="profile-status">
+                        <span aria-hidden="true">●</span>
+                        Working on portfolio >//<
+                    </p>
+                </section>
+                
+                <section class="yourspace-box">
+                    <h2>Contacting Kevwe</h2>
+                    <ul class="contact-list" data-about-links></ul>
+                </section>
+                
+                <section class="yourspace-box">
+                    <h2>Qualifications</h2>
+                    <dl class="qualification-list" data-about-qualifications></dl>
+                </section>
+            </aside>
+            
+            <main class="yourspace-main">
+                <section class="yourspace-section about-intro">
+                    <h2>About Kevwe</h2>
+                    <div data-about-intro></div>
+                </section>
+                
+                <section class="yourspace-section">
+                    <h2>Development Interests</h2>
+                    <div class="development-grid" data-about-development></div>
+                </section>
+
+                <section class="yourspace-section">
+                    <h2>Working Style</h2>
+                    <dl class="working-style-list" data-about-working></dl>
+                </section>
+
+                    
+                <div class="interest-player">
+                    <div class="interest-player-header">
+                        <div class="interest-player-art" aria-hidden="true">
+                            Art
+                        </div>
+                        
+                        <div>
+                            <span class="interest-player-label">
+                                Kev's fav
+                            </span>
+                            <strong data-interest-heading>Games</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="interest-player-content" id="interest-panel" role="tabpanel" aria-live="polite">
+                        <ul class="interest-list" data-interest-list></ul>
+                    </div>
+                    
+                    <div class="interest-tabs" role="tablist" aria-label="Interest categories">
+                        <button class="interest-tab" type="button" role="tab" aria-selected="true" aria-controls="interest-panel" data-interest-key="games">Games</button>
+
+                        <button class="interest-tab" type="button" role="tab" aria-selected="false" aria-controls="interest-panel" data-interest-key="songs">Songs</button>
+
+                        <button class="interest-tab" type="button" role="tab" aria-selected="false" aria-controls="interest-panel" data-interest-key="filmTv">Films &amp; TV Shows</button>
+                    </div>
+                    
+                </div>
+            </main>
+        </div>
+    </div>
+</template>

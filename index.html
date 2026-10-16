@@ -10,11 +10,16 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/window.css" />
     <link rel="stylesheet" href="css/taskbar.css" />
+    <link rel="stylesheet" href="css/projects.css" />
+    <link rel="stylesheet" href="css/about.css" />
     
     <script src="js/windows.js" defer></script>
     <script src="js/desktop.js" defer></script>
     <script src="js/projects.js" defer></script>
+    <script src="js/about.js" defer></script>
 </head>
+
+<!-- TODO swap initial window back to projects -->
 
 <body>
     <!-- ========================= 
@@ -25,13 +30,17 @@
             <img src="assets/icons/Projects.ico" alt="Projects Folder">
             <span>My Projects</span>
         </div>
+
+        <div class="desktop-icon" id="icon-about" data-target="window-about">
+            <img src="assets/icons/InternetExplorer.png" alt="About Me Page">
+            <span>About Me</span>
+        </div>
     </div>
 
     <!-- ========================= 
-            Windows
+            Project Window
          ========================= -->
-    <!-- eventually make inactive windows change colour -->
-    <div class="window" id="window-projects" data-target="taskbar-task-projects" >
+    <div class="window closed" id="window-projects" data-target="taskbar-task-projects" >
         <div class="title-bar">
             <div class="title-bar-icon">
                 <img src="assets/icons/Projects.ico" alt="Projects Window Icon">
@@ -190,23 +199,68 @@
     </div>
 
     <!-- ========================= 
+            About Window
+         ========================= -->
+
+    <div class="window" id="window-about" data-target="taskbar-task-about" >
+        <div class="title-bar">
+            <div class="title-bar-icon">
+                <img src="assets/icons/InternetExplorer.png" alt="About Me Window Icon">
+            </div>
+            <div class="title-bar-text">About Me - Internet Explorer</div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize" class="window-min"></button>
+                <button aria-label="Maximize" class="window-max"></button>
+                <button aria-label="Restore" class="window-restore"></button>
+                <button aria-label="Close" class="window-close"></button>
+            </div>
+        </div>
+
+        <div class="window-body" data-about-window-content>
+        </div>
+    </div>
+
+    <!-- ========================= 
             Taskbar
          ========================= -->
     <div id="taskbar">
         <button id="start-button">start</button>
         
         <div id="taskbar-tasks">
-            <div class="taskbar-task active" id="taskbar-task-projects" data-target="window-projects">
+            <div class="taskbar-task closed" id="taskbar-task-projects" data-target="window-projects">
                 <img src="assets/icons/Projects.ico" alt="My Projects"/>
                 My Projects
+            </div>
+
+            <div class="taskbar-task active" id="taskbar-task-about" data-target="window-about">
+                <img src="assets/icons/InternetExplorer.png" alt="About Me"/>
+                About Me
             </div>
         </div>
         
         <div id="system-tray">
-            <span id="clock">12:00 PM</span>
+            <span id="clock">12:00</span>
         </div>
     </div>
 
 </body>
 
 </html>
+
+<!--
+Higher Priority:
+refreshing page puts everything back to initial state - should persist
+Email desktop icon: clicking it opens mailto link
+Add icons for tasks on projects window
+Start menu should be a quick access menu (works well for smaller displays if desktop not always visible)
+Windows XP scroll bar
+Put status bar at bottom of windows
+about window banner should stick to top
+-->
+
+<!-- 
+Extra functionality:
+eventually make inactive windows change colour 
+resize windows
+closing window should get it to restart its state (e.g. project window goes to list view, clears history)
+-->

@@ -27,23 +27,31 @@
          ========================= -->
     <div id="desktop">
         <div class="desktop-icon" id="icon-projects" data-target="window-projects">
-            <img src="assets/icons/Projects.ico" alt="Projects Folder">
+            <img src="assets/icons/Projects.ico" alt="">
             <span>My Projects</span>
         </div>
 
         <div class="desktop-icon" id="icon-about" data-target="window-about">
-            <img src="assets/icons/InternetExplorer.png" alt="About Me Page">
+            <img src="assets/icons/InternetExplorer.png" alt="">
             <span>About Me</span>
+        </div>
+
+        <!-- considering professional email hmm -->
+        <div class="desktop-icon" id="icon-email">
+            <a href="mailto:kevwe.a@outlook.com">
+                <img src="assets/icons/Email.png" alt="Link to contact via email">
+            </a>
+            <span>Email</span>
         </div>
     </div>
 
     <!-- ========================= 
             Project Window
          ========================= -->
-    <div class="window closed" id="window-projects" data-target="taskbar-task-projects" >
+    <div class="window active" id="window-projects" data-target="taskbar-task-projects" >
         <div class="title-bar">
             <div class="title-bar-icon">
-                <img src="assets/icons/Projects.ico" alt="Projects Window Icon">
+                <img src="assets/icons/Projects.ico" alt="">
             </div>
             <div class="title-bar-text">My Projects</div>
             <div class="title-bar-controls">
@@ -55,8 +63,8 @@
         </div>
         
         <div class="window-body">
-            <nav class="window-toolbar">
-                <div class="toolbar-back">
+            <nav class="window-toolbar"> 
+                <div class="toolbar-navigation">
                     <a href="#" class="toolbar-nav-button" data-project-back aria-label="Back" aria-disabled="true">
                         <img src="assets/icons/Back.png" alt=""/>
                     </a>
@@ -66,14 +74,14 @@
                     </a>
                     
                 </div>
-                <div class="toolbar-addressbar">
-                    <div class="toolbar-addressbar-field">
-                            <img src="assets/icons/MyComputer.png" alt="My Computer Icon">
+                <div class="toolbar-address">
+                    <div class="toolbar-address-field">
+                            <img src="assets/icons/MyComputer.png" alt="">
                             <span data-project-address>My Projects/</span>
                     </div>
                 </div>
-                <div class="toolbar-view">
-                    <img src="assets/icons/TileView.png" alt="Tile View Icon"/>
+                <div class="toolbar-trailing"> <!-- Might have this change view but very low priority -->
+                    <img src="assets/icons/TileView.png" alt=""/>
                 </div>
             </nav>
             
@@ -81,45 +89,6 @@
             
             <div class="window-content">
                 <aside class="content-leftpanel">
-                    
-                    <section class="task-group" data-project-actions hidden> <!-- don't show when project not selected -->
-                        <h3 class="task-group-heading">Project Tasks</h3>
-                        
-                        <ul class="task-list">
-                            <li data-project-open-row>
-                                <a class="task-action" href="#" data-project-open> <!-- hidden on detail view -->
-                                    <img src="assets/icons/Open.png" alt="Open Project Icon"/>
-                                    Open project
-                                </a>
-                            </li>
-                            <li data-project-github-row>
-                                <a class="task-action" href="#" data-project-github>
-                                    <img src="assets/icons/InternetShortcut.png" alt="Internet Icon"/>
-                                    View on GitHub
-                                </a>
-                            </li>
-                            <li data-project-youtube-row>
-                                <a class="task-action" href="#" data-project-youtube>
-                                    <img src="assets/icons/Play.png" alt="Play Icon"/>
-                                    Watch demo
-                                </a>
-                            </li>
-                        </ul>
-                    </section>
-
-                    <!-- TODO need to add icons for each action -->
-                    <section class="task-group">
-                        <h3 class="task-group-heading">Other Places</h3>
-
-                        <ul class="task-list">
-                            <li>
-                                <a class="task-action" href="#" data-show-project-list>All Projects</a>
-                            </li>
-                            <li>
-                                <a class="task-action" href="#">Desktop</a>
-                            </li>
-                        </ul>
-                    </section>
 
                     <section class="task-group" data-project-page-navigation hidden>
                         <h3 class="task-group-heading">On This Page</h3> <!-- hidden on list view -->
@@ -136,6 +105,56 @@
                             </li>
                             <li>
                                 <a class="task-action" href="#project-results">Results and Reflections</a>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <section class="task-group" data-project-actions hidden> <!-- don't show when project not selected -->
+                        <h3 class="task-group-heading">Project Tasks</h3>
+                        
+                        <ul class="task-list">
+                            <li data-project-open-row>
+                                <a class="task-action" href="#" data-project-open> <!-- hidden on detail view -->
+                                    <img src="assets/icons/Open.png" alt=""/>
+                                    Open project
+                                </a>
+                            </li>
+                            <li data-project-github-row>
+                                <a class="task-action" href="#" data-project-github>
+                                    <img src="assets/icons/InternetShortcut.png" alt=""/>
+                                    View on GitHub
+                                </a>
+                            </li>
+                            <li data-project-youtube-row>
+                                <a class="task-action" href="#" data-project-youtube>
+                                    <img src="assets/icons/Play.png" alt=""/>
+                                    Watch demo
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <!-- TODO need to add icons for each action -->
+                    <section class="task-group">
+                        <h3 class="task-group-heading">Other Places</h3>
+
+                        <ul class="task-list">
+                            <li>
+                                <a class="task-action" href="#" data-show-project-list>
+                                    All Projects
+                                </a>
+                            </li>
+                            <li>
+                                <a class="task-action" href="#" data-window-id="window-about"> <!-- Opens up about me page -->
+                                    <img src="assets/icons/URL.png" alt=""/>
+                                    About Me
+                                </a>
+                            </li>
+                            <li>
+                                <a class="task-action" href="#"> <!-- Hide all windows ? -->
+                                    <img src="assets/icons/Desktop.png" alt=""/>
+                                    Desktop
+                                </a>
                             </li>
                         </ul>
                     </section>
@@ -196,16 +215,25 @@
                 </main>
             </div>
         </div>
+
+        <div class="status-bar">
+            <p class="status-bar-field primary">4 objects</p> <!-- as more projects added make this a dynamic count -->
+            <p class="status-bar-field indicator"></p>
+            <p class="status-bar-field location">
+                <img src="assets/icons/MyComputer.png" alt="">
+                <span>My Computer</span>
+            </p>
+        </div>
     </div>
 
     <!-- ========================= 
             About Window
          ========================= -->
 
-    <div class="window" id="window-about" data-target="taskbar-task-about" >
+    <div class="window closed" id="window-about" data-target="taskbar-task-about" >
         <div class="title-bar">
             <div class="title-bar-icon">
-                <img src="assets/icons/InternetExplorer.png" alt="About Me Window Icon">
+                <img src="assets/icons/InternetExplorer.png" alt="">
             </div>
             <div class="title-bar-text">About Me - Internet Explorer</div>
             <div class="title-bar-controls">
@@ -218,6 +246,17 @@
 
         <div class="window-body" data-about-window-content>
         </div>
+
+        <div class="status-bar">
+            <p class="status-bar-field primary">http://www.yourspace.com/kevwe</p>
+            <p class="status-bar-field indicator"></p>
+            <p class="status-bar-field indicator"></p>
+            <p class="status-bar-field indicator"></p>
+            <p class="status-bar-field location">
+                <img src="assets/icons/InternetShortcut.png" alt="">
+                <span>Internet</span>
+            </p>
+        </div>
     </div>
 
     <!-- ========================= 
@@ -227,12 +266,12 @@
         <button id="start-button">start</button>
         
         <div id="taskbar-tasks">
-            <div class="taskbar-task closed" id="taskbar-task-projects" data-target="window-projects">
+            <div class="taskbar-task active" id="taskbar-task-projects" data-target="window-projects">
                 <img src="assets/icons/Projects.ico" alt="My Projects"/>
                 My Projects
             </div>
 
-            <div class="taskbar-task active" id="taskbar-task-about" data-target="window-about">
+            <div class="taskbar-task closed" id="taskbar-task-about" data-target="window-about">
                 <img src="assets/icons/InternetExplorer.png" alt="About Me"/>
                 About Me
             </div>
@@ -247,19 +286,21 @@
 
 </html>
 
+<!-- 
+Next Steps:
+Start menu should be a quick access menu (works well for smaller displays if desktop not always visible)
+CV PDF reader
+-->
+
 <!--
 Higher Priority:
-refreshing page puts everything back to initial state - should persist
-Email desktop icon: clicking it opens mailto link
+refreshing page puts everything back to initial state - should persist instead
 Add icons for tasks on projects window
-Start menu should be a quick access menu (works well for smaller displays if desktop not always visible)
-Windows XP scroll bar
-Put status bar at bottom of windows
-about window banner should stick to top
 -->
 
 <!-- 
-Extra functionality:
+Extra functionality (post-launch maybes): 
+Windows XP scroll bar
 eventually make inactive windows change colour 
 resize windows
 closing window should get it to restart its state (e.g. project window goes to list view, clears history)

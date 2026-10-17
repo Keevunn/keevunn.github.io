@@ -29,6 +29,7 @@ async function initialiseProjects() {
     initialiseProjectActions();
     initialiseProjectNavigation();
     initialiseSectionNavigation();
+    initialiseProjectWindowReset();
     
     renderProjectView(projectViewHistory[0]);
     updateProjectNavigationButtons();
@@ -139,6 +140,22 @@ function initialiseProjectNavigation() {
         
         updateProjectNavigationButtons();
     })
+}
+
+function initialiseProjectWindowReset() {
+    const projectsWin = document.getElementById("window-projects");
+
+    projectsWin.addEventListener("window-closed", resetProjectWindow);
+}
+
+function resetProjectWindow() {
+    clearProjectSelection();
+    
+    projectViewHistory.splice(0, projectViewHistory.length, {view: "list"});
+    projectViewHistoryIndex = 0;
+    
+    renderProjectView(projectViewHistory[0]);
+    updateProjectNavigationButtons();
 }
 
 function selectProject(projectId) {

@@ -95,6 +95,7 @@ windows.forEach((win) => {
     // Close
     closeBtn.addEventListener("click", (event) => {
         event.stopPropagation();
+        win.dispatchEvent(new CustomEvent("window-closed"));
         win.classList.add("closed");
 
         // Taskbar task
@@ -144,3 +145,10 @@ windows.forEach((win) => {
     
 });
 
+const windowLinks = document.querySelectorAll("[data-window-id]");
+windowLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+        event.preventDefault();
+        openWindowByID(link.dataset.windowId);
+    });
+});

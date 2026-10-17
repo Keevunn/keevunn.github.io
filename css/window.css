@@ -51,8 +51,46 @@
     height: 20px;
 }
 
+.window:not(.active) {
+    box-shadow:
+            inset -1px -1px #485a8d,
+            inset 1px 1px #849bd2,
+            inset -2px -2px #5669a0,
+            inset 2px 2px #91a9df,
+            inset -3px -3px #6379b2,
+            inset 3px 3px #7894cf;
+}
+
+.window:not(.active) .title-bar {
+    background: linear-gradient(
+            180deg,
+            #9db9e9,
+            #7f9ddd 8%,
+            #7894d3 40%,
+            #83a3e0  88%,
+            #7f9edb  93%,
+            #718fcf  95%,
+            #5d78b5  96%,
+            #5d78b5 );
+}
+
+.window:not(.active) .title-bar .title-bar-text {
+    color: #f4f6fb;
+    text-shadow: 1px 1px #667496;
+}
+
+.window:not(.active) .title-bar .title-bar-icon {
+    opacity: 0.8;
+}
+
+.window:not(.active) .title-bar .title-bar-controls button {
+    filter: saturate(0.55) brightness(1.08);
+    opacity: 0.9;
+}
+
+
 .window-body {
-    margin: 0 4px 4px 4px;
+    margin: 0 4px 2px 4px;
     
     display: flex;
     flex-direction: column;
@@ -78,67 +116,116 @@
 
 .window-toolbar{
     display: flex;
-    align-items: stretch;
+    flex-shrink: 0;
+    align-items: center;
 
     width: 100%;
     height: 46px;
+    padding: 1px 6px;
     box-sizing: border-box;
+    
+    font-family: "Pixelated MS Sans Serif", Arial, sans-serif;
 
     background: #ece9d8;
     border-top: 1px solid white;
-    border-bottom: 1px solid #aca899;
-
-    flex-shrink: 0;
+    border-bottom: 1px solid rgba(208,206,191,.75);
 }
 
-
-.toolbar-back,
-.toolbar-addressbar,
-.toolbar-addressbar-field,
-.toolbar-view {
+.toolbar-navigation {
     display: flex;
+    align-self: stretch;
     align-items: center;
-
-    box-sizing: border-box;
-}
-
-.toolbar-back {
-    flex: 0 0 64px;
-    justify-content: center;
-    
-    width: 64px;
     gap: 8px;
     
-    border-right: 1px solid #aca899;
+    padding-right: 8px;
+    
+    border-right: 1px solid rgba(208,206,191,.75);
 }
 
-.toolbar-back img,
-.toolbar-view img {
+.toolbar-nav-button {
+    display: grid;
+    place-items: center;
+    
+    width: 28px;
+    height: 28px;
+    
+    text-decoration: none;
+}
+
+.toolbar-nav-button img,
+.toolbar-trailing img {
     width: 24px;
     height: 24px;
+    
     object-fit: contain;
 }
 
-.toolbar-addressbar {
-    flex: 1 1 auto;
+.toolbar-address{
+    display: flex;
+    flex: 1;
+    align-self: stretch;
+    align-items: center;
+    gap: 6px;
+
+    padding: 0 8px;
     
     min-width: 0;
-    padding: 0 8px;
+
+    border-left: 1px solid hsla(0,0%,100%,.75);
+    border-right: 1px solid rgba(208,206,191,.75);
 }
 
-.toolbar-addressbar-field {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
+#window-about .toolbar-address {
+    border-right: none;
+}
+
+.toolbar-address-label {
+    flex-shrink: 0;
     
-    width: 100%;
-    height: 26px;
-    padding: 0 8px;
+    color: #4d4d4d;
+}
+
+.toolbar-address-field {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: 5px;
+    
+    padding: 0 7px;
+    box-sizing: border-box;
     
     min-width: 0;
+    height: 26px;
     
+    color: #222;
     background: white;
     border: 1px solid #7f9db9;
+    box-shadow: inset 1px 1px #d8d8d8;
+    
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.toolbar-address-field img {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+}
+
+.toolbar-address-field span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.toolbar-trailing {
+    display: grid;
+    flex: 0 0 48px;
+    align-self: stretch;
+    place-items: center;
+    
+    width: 48px;
+
+    border-left: 1px solid hsla(0,0%,100%,.75);
 }
 
 .toolbar-addressbar-field img {
@@ -149,15 +236,7 @@
 .toolbar-nav-button.disabled {
     opacity: 0.4;
     pointer-events: none;
-}
-
-.toolbar-view {
-    flex: 0 0 48px;
-    justify-content: center;
-    
-    width: 48px;
-    
-    border-left: 1px solid #aca899;
+    filter: grayscale();
 }
 
 /* ==================
@@ -172,4 +251,50 @@
     min-height: 0;
     
     overflow: hidden;
+}
+
+/* ==================
+    Status Bar 
+   ================== */
+.status-bar{
+    flex-shrink: 0;
+}
+
+.status-bar-field {
+    font-family: "Pixelated MS Sans Serif", Arial, sans-serif;
+}
+
+.status-bar-field.primary {
+    flex: 1 1 auto;
+    
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.status-bar-field.indicator {
+    flex: 0 0 22px;
+    padding-inline: 0;
+}
+
+.status-bar-field.location {
+    display: flex;
+    flex: 0 1 135px;
+    align-items: center;
+    gap: 4px;
+    
+    min-width: 105px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.status-bar-field img {
+    display: block;
+    flex-basis: 14px;
+    
+    width: 14px;
+    height: 14px;
+    
+    object-fit: contain;
 }

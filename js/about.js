@@ -24,6 +24,7 @@
     renderLinks(about.links);
     
     initialiseInterestPlayer(about.interests);
+    initialiseAboutWindowReset();
 }
 
 function renderIntroduction(content) {
@@ -121,6 +122,16 @@ function initialiseInterestPlayer(interests) {
     });
 
     showInterestCategory("games", interests);
+}
+
+function initialiseAboutWindowReset() {
+    
+    const aboutWin = document.getElementById("window-about"); 
+    const scrollArea = aboutWin.querySelector("[data-scroll-area]");
+    
+    aboutWin.addEventListener("window-closed", () => {
+        scrollArea.scrollTop = 0;
+    });
 }
 
 function showInterestCategory(key, interests) {

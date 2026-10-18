@@ -200,7 +200,7 @@ function showProjectDetails(project) {
     const fragment = template.content.cloneNode(true);
     
     fragment.querySelector("[data-project-title]").textContent = project.title;
-    fragment.querySelector("[data-project-technologies]").textContent = project.info.technologies.join(" • ");
+    fragment.querySelector("[data-project-technologies]").textContent = project.info.technologies.join(" | ");
     fragment.querySelector("[data-project-overview]").textContent = project.overview;
     
     const image = fragment.querySelector("[data-project-image]");

@@ -332,15 +332,14 @@
 .interest-player-header {
     display: flex;
     align-items: center;
-    gap: 8px;
     
     min-height: 56px;
-    padding: 7px;
     
     color: white;
     background: linear-gradient(#507064 0%, 
         #263b34 48%, 
         #15241f 100%);
+    border-bottom: 2px solid #15241f;
 }
 
 .interest-player-art {
@@ -348,8 +347,9 @@
     place-items: center;
     flex-shrink: 0;
     
-    width: 44px;
-    height: 44px;
+    width: 96px;
+    aspect-ratio: 1;
+    object-fit: cover;
     
     color:white;
     font-size: 17px;
@@ -363,10 +363,18 @@
     border: 1px solid rgba(255,255,255,0.75);
 }
 
-.interest-player-header > div:last-child {
+.interest-tab-title {
     display: flex;
     flex-direction: column;
     gap: 2px;
+    align-self: stretch;
+    justify-content: center;
+    
+    width: 70px;
+    
+    padding: 7px 8px 7px 12px;
+
+    border-right: 2px solid #15241f;
 }
 
 .interest-player-label {
@@ -378,9 +386,46 @@
     font-size: 13px;
 }
 
+.interest-playing-item {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    
+    padding: 7px 8px;
+    
+    border-left: 1px solid hsla(0,0%,20%,.75);
+}
+
+.interest-item-detail {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: flex-start;
+    gap: 5px;
+    
+    padding: 0 4px;
+}
+
+#interest-item-default {
+    width: 100%;
+    text-align: right;
+}
+
+.interest-item-detail strong {
+    font-size: 14px;
+}
+
 .interest-player-content {
-    min-height: 138px;
+    height: fit-content;
     background: #25312c;
+    
+    /* was coming from xp.css */
+    padding: 0;
+    border: 0;
+    margin-bottom: 0;
+    box-shadow: none;
 }
 
 .interest-list {
@@ -392,13 +437,12 @@
 }
 
 .interest-list-item {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+    height: 40px;
+
+    box-sizing: border-box;
     
-    padding: 8px 10px;
-    
-    border-bottom: 1px solid #53625c;
+    border-top: 1px solid hsla(0,0%,20%,.75);
+    border-bottom: 2px solid #15241f;
     background: #35413c;
 }
 
@@ -408,6 +452,89 @@
 
 .interest-list-item:last-child {
     border-bottom: 0;
+}
+
+.interest-list-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2px;
+
+    
+    width: 100%;
+    height: 100%;
+    border: 0;
+    padding: 8px 10px;
+    background: transparent;
+    box-shadow: none;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+/* Overrides XP.css styling */
+.interest-list-button:not(:disabled):active, 
+.interest-list-button:not(:disabled):hover {
+    box-shadow:none;
+    background: transparent;
+    border: none;
+}
+
+.interest-list-button:focus {
+    outline: none;
+    border: none;
+}
+
+#window-about .interest-list-button:not(:disabled):focus {
+    /* Removes the XP.css blue border. */
+    box-shadow: none;
+}
+
+#window-about .interest-list-button.selected:focus {
+    /* Restores the selected item’s depressed appearance. */
+    box-shadow:
+            inset 2px 2px #15241f,
+            inset -2px -2px #53625c;
+}
+
+#window-about .interest-list-button:focus-visible {
+    outline: 1px dotted #cfe8dd;
+    outline-offset: -4px;
+}
+
+#window-about .interest-list-button:not(:disabled):active {
+    background: #202a26;
+    box-shadow:
+            inset 2px 2px #101815,
+            inset -1px -1px #53625c;
+
+    transform: translateY(1px);
+}
+
+#window-about .interest-list-button.selected,
+#window-about .interest-list-button.selected:focus {
+    position: relative;
+    z-index: 1;
+
+    color: white;
+    background: #42634f;
+
+    box-shadow:
+            inset 1px 1px #86a990,
+            inset -2px -2px #18251f,
+            1px 2px 2px rgba(0, 0, 0, 0.55);
+}
+
+#window-about .interest-list-button.selected:active {
+    background: #354b40;
+
+    box-shadow:
+            inset 2px 2px #17231e,
+            inset -1px -1px #61786c;
+
+    transform: translateY(1px);
 }
 
 .interest-list-item strong {
@@ -461,10 +588,14 @@
     color: var(--about-green-dark);
     font-weight: bold;
     
-    background: white;
+    background: rgba(244, 248, 241, 0.96);
 }
 
 #window-about .interest-tab:focus-visible {
     outline: 1px dotted black;
     outline-offset: -4px;
+}
+
+.interest-tab:focus {
+    outline: none;
 }

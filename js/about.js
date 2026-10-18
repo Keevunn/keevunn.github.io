@@ -118,6 +118,7 @@ function initialiseInterestPlayer(interests) {
     tabs.forEach(tab => {
        tab.addEventListener("click", () => {
            showInterestCategory(tab.dataset.interestKey, interests);
+           resetPlayer();
        }); 
     });
 
@@ -143,7 +144,7 @@ function showInterestCategory(key, interests) {
     const heading = document.querySelector("[data-interest-heading]");
     const list = document.querySelector("[data-interest-list]");
     const tabs = document.querySelectorAll("[data-interest-key]");
-    
+
     heading.textContent = category.heading;
     
     tabs.forEach(tab => {
@@ -159,18 +160,70 @@ function showInterestCategory(key, interests) {
         const item = document.createElement("li");
         item.className = "interest-list-item";
         
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "interest-list-button";
+        btn.addEventListener("click", () => {
+            showInterestItem(interest, btn);    
+        });
+        
         const title = document.createElement("strong");
         title.textContent = interest.title;
         
         const detail = document.createElement("span");
-        detail.textContent = interest.note;
+        detail.textContent = interest.credit;
         
-        item.append(title, detail);
+        btn.append(title, detail);
+        item.append(btn);
         fragment.append(item);
     });
     
     list.replaceChildren(fragment);
 }
+
+function showInterestItem(interest, selectedBtn) {
+    if (selectedBtn.classList.contains("selected")) {
+        return;
+    }
+    
+    const img = document.querySelector(".interest-player-art");
+    img.src = interest.img;
+    
+    const defaultText = document.getElementById("interest-item-default");
+    defaultText.hidden = true;
+    
+    const title = document.querySelector("[data-interest-item-title]");
+    title.hidden = false;
+    title.textContent = interest.title;
+    
+    const description = document.querySelector("[data-interest-item-description]");
+    description.hidden = false;
+    description.textContent = interest.note ? interest.note : interest.credit;
+    
+    const btns = document.querySelectorAll(".interest-list-button");
+    btns.forEach(btn => {
+        const isSelected = btn === selectedBtn;
+        
+        btn.classList.toggle("selected", btn === selectedBtn);
+        if (isSelected) btn.setAttribute("aria-current", "true");
+        else btn.removeAttribute("aria-current");
+    });
+}
+
+function resetPlayer() {
+    const img = document.querySelector(".interest-player-art");
+    img.removeAttribute("src");
+
+    const defaultText = document.getElementById("interest-item-default");
+    defaultText.hidden = false;
+
+    const title = document.querySelector("[data-interest-item-title]");
+    title.hidden = true;
+
+    const description = document.querySelector("[data-interest-item-description]");
+    description.hidden = true;
+}
+
 
 initialiseAbout().catch(error => {
     console.error(error);

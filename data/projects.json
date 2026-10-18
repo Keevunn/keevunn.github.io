@@ -22,7 +22,7 @@
         "technical": [
             {
                 "title": "Destruction Gameplay",
-                "description": "A placed charge uses a timer, as a fuse, and a spherical overlap query to find nearby pieces. After the fuse expires, the charge applies distance-based damage once per piece and a radial impulse to pieces using physics. Once these direct effects have been applied, affected graph-based structures refresh their active model to evaluate connectivity, redistribute load and identify any resulting failures."
+                "description": "A placed charge starts a fuse timer and a spherical overlap query to find nearby pieces. After the fuse expires, the charge applies distance-based damage once per piece and a radial impulse to pieces using physics. Once these direct effects have been applied, affected graph-based structures refresh their active model to evaluate connectivity, redistribute load and identify any resulting failures."
             },
             {
                 "title": "Structural Models",
@@ -42,7 +42,7 @@
     {
         "id": "push-pull",
         "title": "Push-Pull",
-        "overview": "Push-Pull is a team-developed C++ traversal game built around interacting with objects and anchors through push and pull abilities. My work focused on player-facing systems: movement and targeting, Jolt-powered physics interactions, state-driven skeletal animation, and FMOD audio integration.",
+        "overview": "Push-Pull is a team-developed C++ traversal game built around interacting with objects and anchors through push and pull abilities. My role combined gameplay feature design with engine programming: I reworked player movement and targeting, integrated Jolt-powered physics interactions, and designed new traversal and environmental-puzzle applications of the central mechanic. I also implemented state-driven skeletal animation and FMOD audio integration.",
         "image": {
             "src": "assets/projectImages/teamProject/teamThumbnail.gif",
             "alt": "Push-Pull gameplay"
@@ -51,15 +51,20 @@
             "type": "Team Project",
             "role": "Gameplay and engine programming",
             "technologies": ["C++", "Jolt Physics", "FMOD"],
-            "tags": ["Physics-based Traversal", "Skeletal Animation", "Gameplay Audio"]
+            "tags": ["Gameplay Feature Design", "Physics-Based Traversal", "Skeletal Animation", "Gameplay Audio"]
         },
         "contributions": [
+            "Designed and implemented new applications of the core push-pull mechanic, including a self-returning interactive platform and movable objects both used to allow the player to cross large gaps and pitfalls.",
             "Integrated Jolt and reworked player movement and push-pull interactions using forces for traversal and movable objects.",
             "Developed camera-aware targeting and lock-on behaviour, including line-of-sight checks and feedback for the selected object.",
             "Implemented a state-driven skeletal animation controller with clip blending, and connected animation states to player input.",
             "Implemented an FMOD audio service and connected sounds to gameplay events."
         ],
         "technical": [
+            {
+                "title": "Extending the Core Mechanic",
+                "description": "I wanted to explore how the game's push and pull abilities could create challenges beyond direct movement and object manipulation. I designed a pullable platform that travels along a constrained path: the player pulls it towards themselves, boards it, and rides it as it returns to its starting position. I implemented it as a dynamic physics body with movement restricted to one axis and attached it using a slider constraint, keeping its behaviour predictable while retaining physical interaction. Elsewhere, players push movable cubes into pits to create stepping stones, turning the same core ability into a route-building puzzle."
+            },
             {
                 "title": "Physics and Traversal",
                 "description": "Players can lock-on to various objects and, depending on the object's type, the push-pull interaction works differently. If an object is marked as an anchor, a distance constraint is created whose length can be reeled in or out, thus allowing the player to pull themselves towards the anchor, or push and launch away. Target selection favours objects near the centre of the camera view and checks that they are visible before allowing an interaction by using a ray collision query."
@@ -73,10 +78,10 @@
                 "description": "I built a central FMOD service to load, play, update and release sounds, with master-volume controls. Sound cues are connected to actions and transitions including jumps, level completion, and menus."
             }
         ],
-        "results": "This project showed me that gameplay feel rarely belongs to a single system. Movement, physics, animation, camera targeting, visual feedback and audio all needed to agree about the player’s current state for the interactions to feel responsive. Bringing those systems together was one of the most satisfying parts of the project and made me more deliberate about defining clear responsibilities between gameplay and engine code.\nWorking in a team also improved how I communicate technical decisions. I became more confident proposing workflow changes and explaining the reasoning behind an implementation, while learning when compromise was more valuable than pursuing my preferred solution.",
+        "results": "During early development, I noticed that our levels didn't make the player feel like they were making any progress, as they were all too similar. Having played lots of games, I've paid attention to how some developers can use a single mechanic to create different forms of play, depending on its context. This inspired me to look for ways to use our core mechanic to introduce more variation. The platform focuses on movement and timing, while the cubes turn object manipulation into route building.\nThis project showed me that gameplay feel rarely belongs to a single system. Movement, physics, animation, camera targeting, visual feedback and audio all needed to agree about the player’s current state for the interactions to feel responsive. Bringing those systems together was one of the most satisfying parts of the project and made me more deliberate about defining clear responsibilities between gameplay and engine code.\nWorking in a team also improved how I communicate technical decisions. I became more confident proposing workflow changes and explaining the reasoning behind an implementation, while learning when compromise was more valuable than pursuing my preferred solution.",
         "links": {
             "github": null,
-            "youtube": "https://www.youtube.com/watch?v=s02qkATsY4A"
+            "youtube": "https://youtu.be/dg389mWHEcs"
         }
     },
     {

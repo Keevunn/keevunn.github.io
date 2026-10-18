@@ -1,17 +1,17 @@
 ﻿{
-    "intro": "I’m Kevwe, a games programmer currently focused on gameplay. Over the past four years, I’ve developed games and technical projects using both Unity and Unreal Engine, alongside standalone C++ projects involving gameplay, physics and graphics programming.\nI’m particularly interested in player-facing systems: the mechanics, movement, physics, interface and visual feedback that shape how a game feels to play. Games have created some of my most memorable experiences, and I want to help create that feeling for other players.",
+    "intro": "I’m Kevwe, a games programmer focused on gameplay and player-facing systems. Through my degree and personal projects, I’ve worked with Unity, Unreal Engine and standalone C++ frameworks across gameplay, physics, animation and graphics programming.  \nI’m particularly interested in where programming and game design meet: how mechanics, movement, level context and feedback shape what players understand and choose to do. I love exploring how the same core mechanic could be used to create very different ways of playing a game, then building the systems that make those ideas feel clear and responsive. Games have created some of my most memorable experiences, and I want to help create that feeling for other players.",
     "development": [
         {
             "title": "Core Gameplay",
-            "description": "Developing movement, interactions and abilities that shape the player’s moment-to-moment experience."
+            "description": "Designing and implementing movement, interactions and abilities that create meaningful choices and shape moment-to-moment play."
         },
         {
             "title": "Game Physics",
-            "description": "Using collision, forces and constraints to create mechanics that feel responsive and satisfying."
+            "description": "Using collision, forces and constraints as gameplay tools, balancing physical behaviour with clarity, control and responsiveness."
         },
         {
             "title": "Player Feedback and UI",
-            "description": "Communicating game state clearly through UI, audio and visual feedback."
+            "description": "Using UI, audio, animation and visual feedback to communicate game state and make interaction outcomes clear."
         },
         {
             "title": "Graphics Programming",
@@ -21,7 +21,7 @@
     "qualifications": [
         {
             "label": "Degree",
-            "value": "MComp Computer Science"
+            "value": "MComp Computer Science (Game Engineering)"
         },
         {
             "label": "University",
@@ -42,8 +42,8 @@
             "value": "I follow established conventions and understand the existing architecture before making changes."
         },
         {
-            "label": "Systems Thinking",
-            "value": "I consider how a feature interacts with surrounding systems and affects the player experience."
+            "label": "Player-Centred Systems Thinking",
+            "value": "I consider both how a feature interacts with surrounding systems and what it asks the player to understand, decide and do."
         },
         {
             "label": "Adaptability",
@@ -58,43 +58,55 @@
         "games": [
             {
                 "title": "Hades II",
-                "note": "I like how its progression systems give the player meaningful control over how each run develops, and how it uses RNG to introduce variation."
+                "credit": "Supergiant Games",
+                "note": "I like how its progression systems give the player meaningful control over how each run develops, and how it uses RNG to introduce variation.",
+                "img": "assets/aboutImages/games/Hades2.jpg"
             },
             {
                 "title": "Disco Elysium",
-                "note": "Its detailed world-building and branching dialogue make choices feel personal, through the use of lots of small-scale consequences."
+                "credit": "ZA/UM",
+                "note": "Its detailed world-building and branching dialogue make choices feel personal through an accumulation of small-scale consequences.",
+                "img": "assets/aboutImages/games/DiscoElysium.jpg"
             },
             {
                 "title": "The Legend of Zelda: Breath of the Wild",
-                "note": "Its restrained guidance makes exploring the world feel self-directed and being curious is well-rewarded."
+                "credit": "Nintendo",
+                "note": "Its restrained guidance makes exploration feel self-directed and consistently rewards curiosity.",
+                "img": "assets/aboutImages/games/Botw.jpg"
             }
         ],
         "songs": [
             {
                 "title": "Marigold",
-                "note": "Frost Children"
+                "credit": "Frost Children",
+                "img": "assets/aboutImages/songs/Marigold.jpg"
             },
             {
                 "title": "Broken",
-                "note": "Gorillaz"
+                "credit": "Gorillaz",
+                "img": "assets/aboutImages/songs/Broken.png"
             },
             {
                 "title": "Secret Wars",
-                "note": "Hail The Sun"
+                "credit": "Hail The Sun",
+                "img": "assets/aboutImages/songs/SecretWars.webp"
             }
         ],
         "filmTv": [
             {
                 "title": "Severance",
-                "note": "Dan Erickson"
+                "credit": "Dan Erickson",
+                "img": "assets/aboutImages/filmTv/Severance.webp"
             },
             {
                 "title": "One Piece",
-                "note": "Eiichiro Oda"
+                "credit": "Eiichiro Oda",
+                "img": "assets/aboutImages/filmTv/OnePiece.png"
             },
             {
                 "title": "The Incredibles",
-                "note": "Brad Bird"
+                "credit": "Brad Bird",
+                "img": "assets/aboutImages/filmTv/Incredibles.jpg"
             }
         ]
     },

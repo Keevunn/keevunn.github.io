@@ -17,6 +17,7 @@
     <script src="js/desktop.js" defer></script>
     <script src="js/projects.js" defer></script>
     <script src="js/about.js" defer></script>
+    <script src="js/startMenu.js" defer></script>
 </head>
 
 <!-- TODO swap initial window back to projects -->
@@ -133,8 +134,7 @@
                             </li>
                         </ul>
                     </section>
-
-                    <!-- TODO need to add icons for each action -->
+                    
                     <section class="task-group">
                         <h3 class="task-group-heading">Other Places</h3>
 
@@ -260,6 +260,55 @@
     </div>
 
     <!-- ========================= 
+            Start Menu
+         ========================= -->
+    <section class="start-menu" aria-label="Start menu" hidden>
+        <header class="start-menu-header">
+            <img class="start-menu-avatar" src="assets/duck.jpg" alt="">
+            <div class="start-menu-user">
+                <strong>Kevwe Anaughe</strong>
+                <span>Games Programmer</span>
+            </div>
+        </header>
+        
+        <div class="start-menu-accent" aria-hidden="true"></div>
+        
+        <nav class="start-menu-programs" aria-label="Portfolio windows">
+            <button class="start-menu-item" type="button" data-window-id="window-projects">
+                <img src="assets/icons/Projects.ico" alt="">
+                <span>
+                    <strong>My Projects</strong>
+                    <small>View my programming work</small>
+                </span>
+            </button>
+
+            <button class="start-menu-item" type="button" data-window-id="window-about">
+                <img src="assets/icons/InternetExplorer.png" alt="">
+                <span>
+                    <strong>About Me</strong>
+                    <small>Profile, interests and experience</small>
+                </span>
+            </button>
+            
+            <!-- Add when CV window ready -->
+            <button class="start-menu-item" type="button"> <!--data-window-id="window-cv"-->
+                <img src="assets/icons/Wordpad.png" alt="">
+                <span>
+                    <strong>Curriculum Vitae</strong>
+                    <small>View or download my CV</small>
+                </span>
+            </button>
+        </nav>
+        
+        <footer class="start-menu-footer">
+            <a href="mailto:kevwe.a@outlook.com">
+                <img src="assets/icons/Email.png" alt="">
+                Email me!
+            </a>
+        </footer>
+    </section>
+
+    <!-- ========================= 
             Taskbar
          ========================= -->
     <div id="taskbar">
@@ -290,12 +339,8 @@
 Next Steps:
 Start menu should be a quick access menu (works well for smaller displays if desktop not always visible)
 CV PDF reader
--->
-
-<!--
-Higher Priority:
-refreshing page puts everything back to initial state - should persist instead
-Add icons for tasks on projects window
+Experience section for about me
+About me section should highlight creativity
 -->
 
 <!-- 
@@ -303,5 +348,7 @@ Extra functionality (post-launch maybes):
 Windows XP scroll bar
 eventually make inactive windows change colour 
 resize windows
-closing window should get it to restart its state (e.g. project window goes to list view, clears history)
+refreshing page puts everything back to initial state - should persist instead
+
+Maybe I change to windows vista >//< (make some job apps first bro)
 -->

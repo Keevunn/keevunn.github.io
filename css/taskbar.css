@@ -8,7 +8,7 @@
     left: 0;
 
     width: 100%;
-    height: 32px;
+    height: var(--taskbar-height);
 
     display: flex;
     align-items: stretch;
@@ -45,11 +45,11 @@
     flex-direction: column;
     
     position: fixed;
-    bottom: 32px;
+    bottom: var(--taskbar-height);
     left: 0;
     
     width: 310px;
-    height: min(420px, calc(100vh - 32px));
+    height: min(420px, calc(100vh - var(--taskbar-height)));
     box-sizing: border-box;
     
     overflow: hidden;
@@ -315,7 +315,7 @@
     overflow: hidden;
 
     width: 110px;
-    height: 32px;
+    height: var(--taskbar-height);
 
     display: flex;
     align-items: center;
@@ -450,10 +450,18 @@
             inset 0 -1px rgba(0, 51, 153, 0.18);
 
     overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    box-sizing: border-box;
 
     cursor: pointer;
+}
+
+.taskbar-task-label {
+    flex: 1;
+    min-width: 0;
+    
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .taskbar-task.active {

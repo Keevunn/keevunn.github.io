@@ -19,18 +19,20 @@
     min-height: 300px;
 }
 
+/* Initial rules */
 #window-about {
     top: 15vh;
-    left: 15vw;
+    left: clamp(24px, 15vw, 64px);
     z-index: 99;
 }
 
 #window-projects {
     top: 30vh;
-    right: 25vw;
+    right: clamp(24px, 25vw, 96px);
     left: auto;
     z-index: 100;
 }
+/**/
 
 .window.minimised {
     display: none;

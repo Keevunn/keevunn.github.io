@@ -8,16 +8,23 @@
 const desktopIcons = document.querySelectorAll(".desktop-icon");
 
 desktopIcons.forEach((icon) => {
+    icon.addEventListener("click", () => {
+        if (!compactMode.matches) return;
+        if (icon.id === "icon-email") window.location.href = icon.dataset.mailLink;
+        openWindowByID(icon.dataset.target);
+    });
+    
     icon.addEventListener("dblclick", () => {
-       const targetID = icon.getAttribute("data-target");
-       openWindowByID(targetID);
+        if (compactMode.matches) return;
+        if (icon.id === "icon-email") window.location.href = icon.dataset.mailLink;
+        openWindowByID(icon.dataset.target);
     });
 });
 
 const taskbarTasks = document.querySelectorAll(".taskbar-task");
 
 taskbarTasks.forEach((task) => {
-    const targetID = task.getAttribute("data-target");
+    const targetID = task.dataset.target;
     const win = document.getElementById(targetID);
     if (!win) return;
     
@@ -26,15 +33,8 @@ taskbarTasks.forEach((task) => {
             openWindowByElement(win);
         else if (win.style.zIndex < highestZIdx - 1)
             bringToFront(win);
-        else {
-            win.classList.add("minimised");
-            
-            const taskID = win.getAttribute("data-target");
-            if (!taskID) return;
-
-            const activeTask = document.getElementById(taskID);
-            if (activeTask) activeTask.classList.remove("active");
-        }
+        else 
+            minimiseWindow(win);
     });
 });
 

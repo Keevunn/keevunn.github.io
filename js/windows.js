@@ -1,4 +1,6 @@
-﻿const windows = document.querySelectorAll(".window");
+﻿const compactMode = window.matchMedia("(max-width: 760px), (hover: none) and (pointer: coarse)");
+
+const windows = document.querySelectorAll(".window");
 let highestZIdx = 100;
 
 /*
@@ -28,6 +30,37 @@ function bringToFront(win) {
     const activeTask = document.getElementById(taskID);
     if (activeTask) activeTask.classList.add("active");
 }
+
+function clearActiveWindow() {
+    windows.forEach(win => win.classList.remove("active"));
+    taskbarTasks.forEach(task => task.classList.remove("active"));
+}
+
+function getWindowZIndex(win) {
+    const zIndex = Number.parseInt(getComputedStyle(win).zIndex, 10);
+    return Number.isNaN(zIndex) ? 0 : zIndex;
+}
+
+function activateTopVisibleWindow() {
+    const visibleWindows = [...windows].filter(win =>
+        !win.classList.contains("closed") &&
+        !win.classList.contains("minimised")
+    );
+
+    if (visibleWindows.length === 0) {
+        clearActiveWindow();
+        return;
+    }
+
+    const topWindow = visibleWindows.reduce((highest, candidate) =>
+        getWindowZIndex(candidate) > getWindowZIndex(highest)
+            ? candidate
+            : highest
+    );
+
+    bringToFront(topWindow);
+}
+
 function openWindowByID(windowID) {
     const win = document.getElementById(windowID);
     if (!win) return;
@@ -47,20 +80,26 @@ function openWindowByElement(win) {
     openTaskbarTask(taskID);
 }
 
-function minimiseWindow(win) {
+function minimiseWindow(win, activateNext = true) {
+    const wasActive = win.classList.contains("active");
+
     win.classList.add("minimised");
+    win.classList.remove("active");
 
-    const taskID = win.getAttribute("data-target");
-    if (!taskID) return;
+    const taskID = win.dataset.target;
+    const task = document.getElementById(taskID);
 
-    const activeTask = document.getElementById(taskID);
-    if (activeTask) activeTask.classList.remove("active");
+    if (task) task.classList.remove("active");
+    if (activateNext && wasActive) activateTopVisibleWindow();
+    
 }
 
 function showDesktop() {
     windows.forEach(win => {
-        minimiseWindow(win);
+        minimiseWindow(win, false);
     });
+    
+    clearActiveWindow();
 }
 
 // TODO if window closed add appropriate classes
@@ -105,15 +144,19 @@ windows.forEach((win) => {
     // Close
     closeBtn.addEventListener("click", (event) => {
         event.stopPropagation();
+        const wasActive = win.classList.contains("active");
+
         win.dispatchEvent(new CustomEvent("window-closed"));
         win.classList.add("closed");
+        win.classList.remove("active");
 
-        // Taskbar task
-        const targetID = win.getAttribute("data-target");
-        const task = document.getElementById(targetID);
-        if (!task) return;
-        
-        task.classList.add("closed");
+        const task = document.getElementById(win.dataset.target);
+
+        if (task) {
+            task.classList.add("closed");
+            task.classList.remove("active");
+        }
+        if (wasActive) activateTopVisibleWindow();
     });
 
     // Draggable windows ----------------
@@ -121,8 +164,9 @@ windows.forEach((win) => {
     let offsetX = 0, offsetY = 0;
     
     titleBar.addEventListener("mousedown", (event) => {
+        if (compactMode.matches) return;
         if (event.target.closest(".title-bar-controls")) return;
-        
+
         isDragging = true;
         
         const winRect = win.getBoundingClientRect();

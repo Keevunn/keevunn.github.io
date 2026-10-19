@@ -3,8 +3,21 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Kevwe Anaughe Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="assets/icons/Projects.ico" type="image/x-icon">
+    <link rel="canonical" href="https://keevunn.github.io/">
+    
+    <title>Kevwe Anaughe | Gameplay Programmer</title>
+    <meta name="description" content="Gameplay programmer specialising in C++, Unreal Engine, game physics, animation and player-facing systems.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Kevwe Anaughe | Gameplay Programmer">
+    <meta property="og:description" content="Gameplay programming portfolio featuring C++, Unreal Engine, physics, animation and graphics projects.">
+    <meta property="og:url" content="https://keevunn.github.io/">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kevwe Anaughe | Gameplay Programmer">
+    <meta name="twitter:description" content="Gameplay programming portfolio featuring C++, Unreal Engine, physics, animation and graphics projects.">
 
     <link rel="stylesheet" href="https://unpkg.com/xp.css" />
     <link rel="stylesheet" href="css/style.css" />
@@ -13,6 +26,7 @@
     <link rel="stylesheet" href="css/projects.css" />
     <link rel="stylesheet" href="css/about.css" />
     <link rel="stylesheet" href="css/cv.css" />
+    <link rel="stylesheet" href="css/responsiveRules.css" />
     
     <script src="js/windows.js" defer></script>
     <script src="js/desktop.js" defer></script>
@@ -37,10 +51,8 @@
         </div>
 
         <!-- considering professional email hmm -->
-        <div class="desktop-icon" id="icon-email">
-            <a href="mailto:kevwe.a@outlook.com">
-                <img src="assets/icons/Email.png" alt="Link to contact via email">
-            </a>
+        <div class="desktop-icon" id="icon-email" data-mail-link="mailto:kevwe.a@outlook.com">
+            <img src="assets/icons/Email.png" alt="Link to contact via email">
             <span>Email</span>
         </div>
 
@@ -385,17 +397,17 @@
         <div id="taskbar-tasks">
             <div class="taskbar-task active" id="taskbar-task-projects" data-target="window-projects">
                 <img src="assets/icons/Projects.ico" alt="My Projects"/>
-                My Projects
+                <span class="taskbar-task-label">My Projects</span>
             </div>
 
             <div class="taskbar-task" id="taskbar-task-about" data-target="window-about">
                 <img src="assets/icons/InternetExplorer.png" alt="About Me"/>
-                About Me
+                <span class="taskbar-task-label">About Me</span>
             </div>
 
             <div class="taskbar-task closed" id="taskbar-task-cv" data-target="window-cv">
                 <img src="assets/icons/Wordpad.png" alt="">
-                Kevwe's CV
+                <span class="taskbar-task-label">Kevwe's CV</span>
             </div>
         </div>
         
@@ -408,20 +420,17 @@
 
 </html>
 
-<!-- 
-Next Steps:
-responsive layout needed; works for mobile; can't drag windows around (automatically full screen)
-    no double click action
-    about: single column layout?
-    project: maybe add another row to info table for links 
-    cv: no major change needed?
--->
 
 <!-- 
 Extra functionality (post-launch maybes): 
 Windows XP scroll bar
 resize windows
 refreshing page puts everything back to initial state - should persist instead
+
+accessibility:
+make desktop icons + taskbar tasks buttons for keyboard accessiblity
+project cards need to be buttons
+start button needs aria-controls, aria-haspopup="menu", aria-expanded="false" (initial)
 
 Maybe I change to windows vista >//< (make some job apps first bro)
 -->

@@ -48,10 +48,15 @@ function initialiseProjectSelection() {
     
     items.forEach((item) => {
         item.addEventListener("click", () => {
+            if (compactMode.matches) {
+                openProject(item.dataset.projectId);
+                return;
+            }
             selectProject(item.dataset.projectId);
         });
         
         item.addEventListener("dblclick", () => {
+            if (compactMode.matches) return;
             openProject(item.dataset.projectId);
         });
         
@@ -267,6 +272,41 @@ function populateProjectProperties(fragment, project) {
         
         tagsContainer.append(tagElement);
     });
+    
+    const linksRow = fragment.querySelector("[data-project-links-row]");
+    if (!compactMode.matches) {
+        linksRow.hidden = true;
+        return;
+    }
+    
+    const linksContainer = fragment.querySelector("[data-project-links]");
+    let linkCount = 0;
+    if (project.links.github) {
+        const anchor = document.createElement("a");
+        anchor.href = project.links.github;
+        anchor.textContent = "GitHub";
+        anchor.target = "_blank";
+        anchor.rel = "noopener noreferrer";
+        linksContainer.appendChild(anchor);
+        
+        linkCount++;
+    } 
+    if (project.links.youtube) {
+        if (linkCount >= 1) {
+            const sep = document.createElement("span");
+            sep.textContent = " | ";
+            linksContainer.appendChild(sep);
+        }
+
+        const anchor = document.createElement("a");
+        anchor.href = project.links.youtube;
+        anchor.textContent = "YouTube";
+        anchor.target = "_blank";
+        anchor.rel = "noopener noreferrer";
+        linksContainer.appendChild(anchor);
+
+        linkCount++;
+    }
 }
 
 function populateProjectContributions(fragment, project) {

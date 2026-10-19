@@ -1,4 +1,8 @@
-﻿body {
+﻿:root {
+    --taskbar-height: 32px;
+}
+
+body {
     background-image: url("../assets/BG_hills.webp");
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -12,12 +16,20 @@
 #desktop {
     position: relative;
     width: 100%;
-    height: calc(100vh - 32px); /* taskbar height = 32px */
+    height: calc(100vh - var(--taskbar-height));
+}
+
+@supports (height: 100dvh) {
+    #desktop {
+        height: calc(100dvh - var(--taskbar-height));
+    }
 }
 
 .desktop-icon {
     width: 80px;
     height: 70px;
+    
+    padding-top: 10px;
     
     display: flex;
     flex-direction: column;
@@ -28,6 +40,10 @@
     
     color: white;
     font-size: 11px;
+}
+
+#email-icon {
+    text-decoration: none;
 }
 
 .desktop-icon img {

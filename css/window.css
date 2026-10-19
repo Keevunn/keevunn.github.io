@@ -22,13 +22,13 @@
 /* Initial rules */
 #window-about {
     top: 15vh;
-    left: clamp(24px, 15vw, 64px);
+    left: max(24px, 15vw);
     z-index: 99;
 }
 
 #window-projects {
     top: 30vh;
-    right: clamp(24px, 25vw, 96px);
+    right: max(25vw, 96px);
     left: auto;
     z-index: 100;
 }
@@ -43,7 +43,7 @@
     left: 0 !important;
 
     width: 100vw !important;
-    height: calc(100vh - 32px) !important;
+    height: calc(100vh - var(--taskbar-height)) !important;
     max-height: none;
 }
 

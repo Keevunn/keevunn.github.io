@@ -3,8 +3,12 @@
         "id": "destruction",
         "title": "Graph-Based Real-Time Destruction",
         "overview": "For my master's dissertation, I built a playable demolition prototype in Unreal Engine 5 to investigate alternatives to physics-driven structural destruction. Players deploy timed charges to destroy objective pieces while trying to avoid damaging protected pieces of the structure. Behind this gameplay loop, I implemented and compared a physics-driven baseline, a connectivity model, and a load-propagation model.",
+        "video": {
+            "src": "assets/projectImages/dissProject/dissProject.webm",
+            "type": "video/webm"
+        },
         "image": {
-            "src": "assets/projectImages/dissProject/dissProject.gif",
+            "src": "assets/projectImages/dissProject/projectThumbnail.webp",
             "alt": "Structural analysis for destruction simulation"
         },
         "info": {
@@ -43,8 +47,12 @@
         "id": "push-pull",
         "title": "Push-Pull",
         "overview": "Push-Pull is a team-developed C++ traversal game built around interacting with objects and anchors through push and pull abilities. My role combined gameplay feature design with engine programming: I reworked player movement and targeting, integrated Jolt-powered physics interactions, and designed new traversal and environmental-puzzle applications of the central mechanic. I also implemented state-driven skeletal animation and FMOD audio integration.",
+        "video": {
+            "src": "assets/projectImages/teamProject/teamThumbnail.webm",
+            "type": "video/webm"
+        },
         "image": {
-            "src": "assets/projectImages/teamProject/teamThumbnail.gif",
+            "src": "assets/projectImages/teamProject/thumbnail.webp",
             "alt": "Push-Pull gameplay"
         },
         "info": {
@@ -88,8 +96,12 @@
         "id": "graphics",
         "title": "Real-Time Graphics Project",
         "overview": "I built a C++ and OpenGL graphics demonstration with two switchable scenes: a natural environment with terrain, water and animated characters; and a factory scene with animated characters and spotlights. The final coursework integrates custom GLSL shaders, skeletal animation, tessellated surfaces, splat mapping, and a multi-pass lighting renderer on top of the framework provided for the module.",
+        "video": {
+            "src": "assets/projectImages/graphicsProject/graphicsThumbnail.webm",
+            "type": "video/webm"
+        },
         "image": {
-            "src": "assets/projectImages/graphicsProject/graphicsThumbnail.gif",
+            "src": "assets/projectImages/graphicsProject/IslandScene.png",
             "alt": "Graphics demo showing islands"
         },
         "info": {

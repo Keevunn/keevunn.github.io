@@ -19,6 +19,19 @@
     min-height: 300px;
 }
 
+#window-about {
+    top: 15vh;
+    left: 15vw;
+    z-index: 99;
+}
+
+#window-projects {
+    top: 30vh;
+    right: 25vw;
+    left: auto;
+    z-index: 100;
+}
+
 .window.minimised {
     display: none;
 }

@@ -169,6 +169,13 @@
     background: transparent;
 }
 
+.project-item-info {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .project-item-text strong {
     font-size: 13px;
     line-height: 1.2;
@@ -217,7 +224,7 @@
 
 .project-detail-hero {
     display: grid;
-    grid-template-columns: minmax(0, 3fr) minmax(180px, 2fr);
+    grid-template-columns: minmax(0, 2fr) minmax(180px, 2fr);
     align-items: start;
     gap: 14px;
 
@@ -233,12 +240,16 @@
 
     width: 100%;
     aspect-ratio: 16 / 9;
+    
 
     box-sizing: border-box;
     border: 1px solid #7f9db9;
 
     background: black;
     object-fit: cover;
+}
+.project-detail-image[hidden] {
+    display: none;
 }
 
 .project-detail-header {

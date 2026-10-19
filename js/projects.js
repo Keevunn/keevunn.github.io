@@ -87,6 +87,7 @@ function clearProjectSelection() {
 function initialiseProjectActions() {
     const openAction = document.querySelector("[data-project-open]");
     const showAllAction = document.querySelector("[data-show-project-list]");
+    const showDesktopAction = document.querySelector("[data-show-desktop]");
     
     openAction.addEventListener("click", (event) => {
         event.preventDefault();
@@ -99,6 +100,12 @@ function initialiseProjectActions() {
         
         navigateToProjectView({view: "list"});
     });
+    
+    showDesktopAction.addEventListener("click", (event) => {
+        event.preventDefault();
+        
+        showDesktop();
+    })
 }
 
 function initialiseSectionNavigation() {
@@ -203,9 +210,21 @@ function showProjectDetails(project) {
     fragment.querySelector("[data-project-technologies]").textContent = project.info.technologies.join(" | ");
     fragment.querySelector("[data-project-overview]").textContent = project.overview;
     
+    const video = fragment.querySelector("[data-project-video]");
     const image = fragment.querySelector("[data-project-image]");
-    image.src = project.image.src;
-    image.alt = project.image.alt;
+    if (project.video) {
+        video.src = project.video.src;
+        video.poster = project.image.src;
+        video.setAttribute("aria-label", project.image.alt);
+        video.hidden = false;
+        
+        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) video.autoplay = true;
+    } else {
+        image.src = project.image.src;
+        image.alt = project.image.alt;
+        image.hidden = false;
+    }
+    
     
     populateProjectProperties(fragment, project);
     populateProjectContributions(fragment, project);

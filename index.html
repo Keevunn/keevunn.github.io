@@ -21,8 +21,6 @@
     <script src="js/startMenu.js" defer></script>
 </head>
 
-<!-- TODO swap initial window back to projects -->
-
 <body>
     <!-- ========================= 
             Desktop
@@ -157,7 +155,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="task-action" href="#"> <!-- Hide all windows ? -->
+                                <a class="task-action" href="#" data-show-desktop> <!-- Hide all windows ? -->
                                     <img src="assets/icons/Desktop.png" alt=""/>
                                     Desktop
                                 </a>
@@ -175,12 +173,15 @@
                         <div class="project-section-separator"></div>
                         
                         <div class="project-list">
-                            
+                            <!-- Could take this data from projects.json; low priority -->
                             <div class="project-item" data-project-id="destruction" tabindex="0">
-                                <img src="assets/projectImages/dissProject/projectThumbnail.png" alt="Dissertation project thumbnail"/>
+                                <img src="assets/projectImages/dissProject/projectThumbnail.webp" alt="Dissertation project thumbnail"/>
                                 <div class="project-item-text">
                                     <strong>Graph-Based Real-Time Destruction</strong>
-                                    <span>Unreal | C++</span>
+                                    <div class="project-item-info">
+                                        <span>Unreal | C++</span>
+                                        <span>(2026)</span>
+                                    </div>
                                     <span>Graph-based structural models comparison for real-time game destruction.</span>
                                 </div>
                             </div>
@@ -189,7 +190,10 @@
                                 <img src="assets/projectImages/teamProject/thumbnail.png" alt="Push-Pull team project thumbnail"/>
                                 <div class="project-item-text">
                                     <strong>Push-Pull</strong>
-                                    <span>Jolt | FMOD | C++</span>
+                                    <div class="project-item-info">
+                                        <span>Jolt | FMOD | C++</span>
+                                        <span>(2026)</span>
+                                    </div>
                                     <span>Team-developed game with force-based mechanics.</span>
                                 </div>
                             </div>
@@ -198,7 +202,10 @@
                                 <img src="assets/projectImages/graphicsProject/IslandScene.png" alt="Graphics project thumbnail"/>
                                 <div class="project-item-text">
                                     <strong>Real-Time Graphics Project</strong>
-                                    <span>OpenGL | GLSL | C++</span>
+                                    <div class="project-item-info">
+                                        <span>OpenGL | GLSL | C++</span>
+                                        <span>(2026)</span>
+                                    </div>
                                     <span>Graphics demo exploring lighting, animation and shader techniques.</span>
                                 </div>
                             </div>
@@ -207,7 +214,10 @@
                                 <img src="assets/projectImages/ipdProject/ProjectTableThumbnail.png" alt="Iterated Prisoner's Dilemma thumbnail"/>
                                 <div class="project-item-text">
                                     <strong>Iterated Prisoner's Dilemma</strong>
-                                    <span>CLI | C++</span>
+                                    <div class="project-item-info">
+                                        <span>CLI | C++</span>
+                                        <span>(2025)</span>
+                                    </div>
                                     <span>Configurable tournament and evolutionary simulation framework.</span>
                                 </div>
                             </div>
@@ -236,7 +246,7 @@
             About Window
          ========================= -->
 
-    <div class="window" id="window-about" data-target="taskbar-task-about" > <!-- different opening position, to the left? -->
+    <div class="window" id="window-about" data-target="taskbar-task-about" > <!-- TODO different opening position, to the left? -->
         <div class="title-bar">
             <div class="title-bar-icon">
                 <img src="assets/icons/InternetExplorer.png" alt="">
@@ -322,7 +332,7 @@
          ========================= -->
     <section class="start-menu" aria-label="Start menu" hidden>
         <header class="start-menu-header">
-            <img class="start-menu-avatar" src="assets/duck.jpg" alt="">
+            <img class="start-menu-avatar" src="assets/duck.webp" alt="">
             <div class="start-menu-user">
                 <strong>Kevwe Anaughe</strong>
                 <span>Games Programmer</span>

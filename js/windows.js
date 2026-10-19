@@ -47,6 +47,22 @@ function openWindowByElement(win) {
     openTaskbarTask(taskID);
 }
 
+function minimiseWindow(win) {
+    win.classList.add("minimised");
+
+    const taskID = win.getAttribute("data-target");
+    if (!taskID) return;
+
+    const activeTask = document.getElementById(taskID);
+    if (activeTask) activeTask.classList.remove("active");
+}
+
+function showDesktop() {
+    windows.forEach(win => {
+        minimiseWindow(win);
+    });
+}
+
 // TODO if window closed add appropriate classes
 windows.forEach((win) => {
     // On start only about (or portfolio) page open
@@ -63,19 +79,13 @@ windows.forEach((win) => {
     const maximiseBtn = win.querySelector(".window-max");
     const restoreBtn = win.querySelector(".window-restore");
     const closeBtn = win.querySelector(".window-close");
-    
-    maximiseBtn.style.display = "none";
+
+    restoreBtn.style.display = "none";
     
     // Minimise
     minimiseBtn.addEventListener("click", (event) => {
         event.stopPropagation();
-        win.classList.add("minimised");
-
-        const taskID = win.getAttribute("data-target");
-        if (!taskID) return;
-
-        const activeTask = document.getElementById(taskID);
-        if (activeTask) activeTask.classList.remove("active");
+        minimiseWindow(win);
     });
     
     // Maximise

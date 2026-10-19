@@ -186,8 +186,9 @@ function showInterestItem(interest, selectedBtn) {
         return;
     }
     
-    const img = document.querySelector(".interest-player-art");
+    const img = document.querySelector("[data-interest-art]");
     img.src = interest.img;
+    img.hidden = false;
     
     const defaultText = document.getElementById("interest-item-default");
     defaultText.hidden = true;
@@ -198,7 +199,19 @@ function showInterestItem(interest, selectedBtn) {
     
     const description = document.querySelector("[data-interest-item-description]");
     description.hidden = false;
-    description.textContent = interest.note ? interest.note : interest.credit;
+    //description.textContent = interest.note ? "Why?: " + interest.note : interest.credit;
+    if (interest.note) {
+        const whyText = document.createElement("span");
+        whyText.id = "why-text";
+        whyText.textContent = "Why?: "
+        
+        description.textContent = "";
+        description.append(whyText);
+        description.append(interest.note);
+    }
+    else {
+        description.textContent = interest.credit;
+    }
     
     const btns = document.querySelectorAll(".interest-list-button");
     btns.forEach(btn => {
@@ -211,8 +224,9 @@ function showInterestItem(interest, selectedBtn) {
 }
 
 function resetPlayer() {
-    const img = document.querySelector(".interest-player-art");
+    const img = document.querySelector("[data-interest-art]");
     img.removeAttribute("src");
+    img.hidden = true;
 
     const defaultText = document.getElementById("interest-item-default");
     defaultText.hidden = false;

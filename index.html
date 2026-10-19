@@ -285,19 +285,23 @@
 
         <div class="window-body">
             <nav class="cv-toolbar" aria-label="CV actions">
-                <a class="cv-toolbar-action" href="data/GameplayCV.pdf" target="_blank" rel="noopener noreferrer">
-                    <img src="assets/icons/Open.png" alt="">
-                    Open PDF
-                </a>
-
-                <a class="cv-toolbar-action" href="data/GameplayCV.pdf" download="GameplayCV.pdf">
-                    Download CV
-                </a>
+                <div class="cv-toolbar-action-container">
+                    <a class="cv-toolbar-action" href="data/GameplayCV.pdf" target="_blank" rel="noopener noreferrer">
+                        <img src="assets/icons/Open.png" alt="">
+                        Open PDF
+                    </a>
+    
+                    <a class="cv-toolbar-action" href="data/GameplayCV.pdf" download="GameplayCV.pdf">
+                        <!-- TODO need icon here -->
+                        Download CV
+                    </a>
+                </div>
+                <div class="cv-toolbar-action-container"></div>
             </nav>
 
             <main class="cv-viewer">
                 <object class="cv-document" data="data/GameplayCV.pdf" type="application/pdf" title="Kevwe Anaughe's CV">
-                    <div class="cv-fallback"> <!-- add broken url image here -->
+                    <div class="cv-fallback"> <!-- TODO add broken url image here -->
                         <p>This browser cannot display the PDF inside the window.</p>
                         <a href="data/GameplayCV.pdf" target="_blank" rel="noopener noreferrer">Open the CV in a new tab</a>
                         <a href="data/GameplayCV.pdf" download="GameplayCV.pdf">Download the CV</a>
@@ -307,13 +311,9 @@
         </div>
 
         <div class="status-bar">
-            <p class="status-bar-field primary">
-                GameplayCV.pdf
-            </p>
-
-            <p class="status-bar-field location">
-                PDF document
-            </p>
+            <p class="status-bar-field primary">GameplayCV.pdf</p>
+            <p class="status-bar-field indicator"></p>
+            <p class="status-bar-field location">PDF document</p>
         </div>
     </div>
 
@@ -400,16 +400,16 @@
 
 <!-- 
 Next Steps:
-Start menu should be a quick access menu (works well for smaller displays if desktop not always visible)
-CV PDF reader
-Experience section for about me
-About me section should highlight creativity
+responsive layout needed; works for mobile; can't drag windows around (automatically full screen)
+    no double click action
+    about: single column layout?
+    project: maybe add another row to info table for links 
+    cv: no major change needed?
 -->
 
 <!-- 
 Extra functionality (post-launch maybes): 
 Windows XP scroll bar
-eventually make inactive windows change colour 
 resize windows
 refreshing page puts everything back to initial state - should persist instead
 

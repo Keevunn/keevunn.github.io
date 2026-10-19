@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/taskbar.css" />
     <link rel="stylesheet" href="css/projects.css" />
     <link rel="stylesheet" href="css/about.css" />
+    <link rel="stylesheet" href="css/cv.css" />
     
     <script src="js/windows.js" defer></script>
     <script src="js/desktop.js" defer></script>
@@ -44,12 +45,17 @@
             </a>
             <span>Email</span>
         </div>
+
+        <div class="desktop-icon" id="icon-cv" data-target="window-cv">
+            <img src="assets/icons/Wordpad.png" alt="">
+            <span>Kevwe's CV</span>
+        </div>
     </div>
 
     <!-- ========================= 
             Project Window
          ========================= -->
-    <div class="window " id="window-projects" data-target="taskbar-task-projects" >
+    <div class="window active" id="window-projects" data-target="taskbar-task-projects" >
         <div class="title-bar">
             <div class="title-bar-icon">
                 <img src="assets/icons/Projects.ico" alt="">
@@ -230,7 +236,7 @@
             About Window
          ========================= -->
 
-    <div class="window active" id="window-about" data-target="taskbar-task-about" >
+    <div class="window" id="window-about" data-target="taskbar-task-about" > <!-- different opening position, to the left? -->
         <div class="title-bar">
             <div class="title-bar-icon">
                 <img src="assets/icons/InternetExplorer.png" alt="">
@@ -255,6 +261,58 @@
             <p class="status-bar-field location">
                 <img src="assets/icons/InternetShortcut.png" alt="">
                 <span>Internet</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- ========================= 
+            CV Window
+         ========================= -->
+
+    <div class="window closed" id="window-cv" data-target="taskbar-task-cv" >
+        <div class="title-bar">
+            <div class="title-bar-icon">
+                <img src="assets/icons/Wordpad.png" alt="">
+            </div>
+            <div class="title-bar-text">Kevwe's CV</div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize" class="window-min"></button>
+                <button aria-label="Maximize" class="window-max"></button>
+                <button aria-label="Restore" class="window-restore"></button>
+                <button aria-label="Close" class="window-close"></button>
+            </div>
+        </div>
+
+        <div class="window-body">
+            <nav class="cv-toolbar" aria-label="CV actions">
+                <a class="cv-toolbar-action" href="data/GameplayCV.pdf" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/icons/Open.png" alt="">
+                    Open PDF
+                </a>
+
+                <a class="cv-toolbar-action" href="data/GameplayCV.pdf" download="GameplayCV.pdf">
+                    Download CV
+                </a>
+            </nav>
+
+            <main class="cv-viewer">
+                <object class="cv-document" data="data/GameplayCV.pdf" type="application/pdf" title="Kevwe Anaughe's CV">
+                    <div class="cv-fallback"> <!-- add broken url image here -->
+                        <p>This browser cannot display the PDF inside the window.</p>
+                        <a href="data/GameplayCV.pdf" target="_blank" rel="noopener noreferrer">Open the CV in a new tab</a>
+                        <a href="data/GameplayCV.pdf" download="GameplayCV.pdf">Download the CV</a>
+                    </div>
+                </object>
+            </main>
+        </div>
+
+        <div class="status-bar">
+            <p class="status-bar-field primary">
+                GameplayCV.pdf
+            </p>
+
+            <p class="status-bar-field location">
+                PDF document
             </p>
         </div>
     </div>
@@ -291,10 +349,10 @@
             </button>
             
             <!-- Add when CV window ready -->
-            <button class="start-menu-item" type="button"> <!--data-window-id="window-cv"-->
+            <button class="start-menu-item" type="button" data-window-id="window-cv">
                 <img src="assets/icons/Wordpad.png" alt="">
                 <span>
-                    <strong>Curriculum Vitae</strong>
+                    <strong>Kevwe's CV</strong>
                     <small>View or download my CV</small>
                 </span>
             </button>
@@ -315,14 +373,19 @@
         <button id="start-button">start</button>
         
         <div id="taskbar-tasks">
-            <div class="taskbar-task " id="taskbar-task-projects" data-target="window-projects">
+            <div class="taskbar-task active" id="taskbar-task-projects" data-target="window-projects">
                 <img src="assets/icons/Projects.ico" alt="My Projects"/>
                 My Projects
             </div>
 
-            <div class="taskbar-task active" id="taskbar-task-about" data-target="window-about">
+            <div class="taskbar-task" id="taskbar-task-about" data-target="window-about">
                 <img src="assets/icons/InternetExplorer.png" alt="About Me"/>
                 About Me
+            </div>
+
+            <div class="taskbar-task closed" id="taskbar-task-cv" data-target="window-cv">
+                <img src="assets/icons/Wordpad.png" alt="">
+                Kevwe's CV
             </div>
         </div>
         
